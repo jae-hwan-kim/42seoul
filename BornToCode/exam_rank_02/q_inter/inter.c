@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <stdio.h>
 
 int check_double_on_next(char **av, int index) {
 	int index2 = 0;
@@ -40,7 +39,7 @@ void write_string(char **av) {
 	}
 }
 
-int		main(int ac, char **av) {
+int	main(int ac, char **av) {
 	if(ac == 3) {
 		write_string(av);
 	}
