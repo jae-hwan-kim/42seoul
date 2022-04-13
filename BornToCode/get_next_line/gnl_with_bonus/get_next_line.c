@@ -105,5 +105,6 @@ char	*get_next_line(int fd)
 	}
 	line = ft_check_get_line(backup);
 	backup = ft_save_backup(backup);
+	free(line);
 	return (line);
 }
