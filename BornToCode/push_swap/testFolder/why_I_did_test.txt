@@ -1,0 +1,9 @@
+* find_seg.c 파일
+1. 받은 문자열 배열을 정수 배열에 넣을 때 seg 오류가 발생했다는 것을 찾기 위해 진행.
+
+* atoi_list_test.c 파일
+1. 받은 문자열 배열을 정수 배열로 바꾸는 test
+2. 정수 배열을 만들 때, malloc을 사용했다. free를 안했는데 메모리 누수 체크가 안된다.
+    누수 체크에 사용한 방법 -> -fsanitize=address 컴파일 / system("leaks 파일이름")
+
+ 
