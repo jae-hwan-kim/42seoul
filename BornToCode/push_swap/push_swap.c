@@ -40,7 +40,7 @@ int main(int ac, char **av)
     int *list;
 
     list = check_error_return_int_list(av, list);
-    if (1 >= ac || NULL == list)
+    if (1 >= ac || 0 == list)
         return (0);
     push_swap(list);
     return (0);
