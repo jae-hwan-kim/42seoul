@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -39,6 +40,7 @@ int	ft_atoi_remix(const char *str, long long *value)
 			return (-1);
 	}
 	*value *= sign;
+	printf("%lld\n", *value);
 	if (-2147483648 > *value || *value > 2147483647)
 		return (-1);
 	return (0);
@@ -68,7 +70,7 @@ int *check_error_return_int_list(char **av, int *list)
 
     avIndex = 1;
     listIndex = 0;
-	while (av[avIndex] != 0)
+	while (av[avIndex] != NULL)
 		avIndex++;
 	tmp = malloc((avIndex) * sizeof(int));
 	avIndex = 1;

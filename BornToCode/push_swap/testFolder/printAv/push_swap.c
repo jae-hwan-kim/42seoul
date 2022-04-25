@@ -39,7 +39,11 @@
 
 void debug_stack(int *list)
 {
-    for (int i = 0; i < strlen(list); i++)
+    int size = 0;
+
+    while (list[size])
+        size++;
+    for (int i = 0; i < size; i++)
     {
         printf("%d\n", list[i]);
     }
