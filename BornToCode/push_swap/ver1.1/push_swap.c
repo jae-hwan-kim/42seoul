@@ -1,70 +1,73 @@
 #include "push_swap.h"
 #include <stdio.h>
-#include <string.h>
 
-int	ft_atoi(const char *str)
+void	ft_make_index(t_node *node_a)
 {
-	int			i;
-	int			sign;
-	long long	result;
+	int		count;
+	int		i;
+	t_node	*checker;
 
+	i = 0;	
+	checker = node_a;
+	printf("node_a -> av[%d] = %d, index = %d\n", node_a->index, node_a->value, node_a->index);
+	while (node_a)
+	{
+		count = 0;
+		while (checker)
+		{
+			if (node_a->value > checker->value)
+				count++;
+			checker = checker->next;
+		}
+		node_a->index = count;
+		node_a = node_a->next;
+	}
+	
+	// while (node_a)
+	// {
+	// 	printf("node_a -> av[%d] = %d, index = %d\n", i, node_a->value, node_a->index);
+	// 	node_a = node_a -> next;
+	// 	i++;
+	// }
+}
+
+void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a)
+{
+	int i;
+	int value;
+	
+	i = 1;
+	while (0 != av[i])
+	{
+		value = ft_atoi(av[i]);
+		ft_lstadd_back(node_a, ft_lstnew(value));
+		i++;
+	}
+	deque_a->head = *node_a;
+	deque_a->tail = ft_lstlast(*node_a);
+	deque_a->size = ft_lstsize(*node_a);
+}
+
+int	main(int ac, char **av)
+{
+    t_deque	*deque_a;
+	t_node	*node_a;
+	int	i;
+
+	//check_error(av);
 	i = 0;
-	sign = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] == '+')
-		i++;
-	while (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
-	{
-		if (result * sign > 2147483647)
-			return (-1);
-		else if (result * sign < -2147483648)
-			return (0);
-		else
-			result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	return (result * sign);
-}
-
-void print_stack(int *first_stack, int *second_stack)
-{
-    int index;
-
-    index = 0;
-    while (0 != first_stack[index] && 0 != second_stack[index])
-    {
-        write(1, &first_stack[index], 1);
-        write(1, &second_stack[index], 1);
-        write(1, "\n", 1);
-    }
-    write(1, "-\n", 2);
-    write(1, "a", 1);
-}
-
-void make_int_array(char **av, int *first_stack)
-{
-    int index;
-
-    index = 0;
-    while (0 != av[index])
-    {
-        first_stack[index] = ft_atoi(av[index]);
-    }
-}
-
-int main(int ac, char **av)
-{
-    int *first_stack;
-    int *second_stack;
-
-    //check_error(av);
-    make_int_array(av, first_stack);
-    print_stack(first_stack, second_stack);
-    // push_swap(first_stack);
+	node_a = 0;
+	deque_a = ft_deqnew(deque_a);
+    ft_make_list(av, deque_a, &node_a);
+	ft_make_index(node_a);
+	// while (node_a)
+	// {
+	// 	printf("node_a -> av[%d] = %d, index = %d\n", i, node_a->value, node_a->index);
+	// 	node_a = node_a -> next;
+	// 	i++;
+	// }
+	// printf("deque -> head size = %d\n", deque_a->size);
+    //print_stack(node_a);
+    //push_swap(first_stack);
     return (0);
 }
