@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct	s_node
 {
@@ -19,14 +20,16 @@ typedef struct s_deque
     struct s_node   *tail; 
 }                   t_deque;
 
-t_node	*ft_lstlast(t_node *lst);
-t_node	*ft_lstnew(int value);
-t_deque *ft_deqnew(t_deque *lst);
 int	    ft_atoi(const char *str);
 int     ft_lstsize(t_node *lst);
+void	ft_make_index(t_node *node_a);
+void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a);
 void	ft_lstadd_back(t_node **lst, t_node *new);
 void    ft_deqadd_tail(t_deque *deque, t_node *node_a);
 void    ft_deqadd_head(t_deque *deque, t_node *node_a);
+t_node	*ft_lstlast(t_node *lst);
+t_node	*ft_lstnew(int value);
+t_deque *ft_deqnew(t_deque *lst);
 //int *check_error_return_int_list(char **av, int *list);
 
 #endif

@@ -1,17 +1,5 @@
 #include "push_swap.h"
 
-// t_node	*ft_lstnew(int value)
-// {
-// 	t_node	*n_list;
-
-// 	n_list = (t_node *)malloc(sizeof(t_node));
-// 	if (n_list == 0)
-// 		return (0);
-// 	n_list -> value = value;
-// 	n_list -> next = 0;
-// 	return (n_list);
-// }
-
 t_deque *ft_deqnew(t_deque *lst)
 {
     lst = (t_deque *)malloc(sizeof(t_deque));

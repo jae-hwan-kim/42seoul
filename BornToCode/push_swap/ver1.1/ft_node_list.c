@@ -8,7 +8,9 @@ t_node	*ft_lstnew(int value)
 	if (n_list == 0)
 		return (0);
 	n_list -> value = value;
+	n_list -> index = 0;
 	n_list -> next = 0;
+	n_list -> prev = 0;
 	return (n_list);
 }
 
@@ -24,6 +26,15 @@ int	ft_lstsize(t_node *lst)
 	}
 	return (i);
 }
+
+// t_node	*ft_lstfirst(t_node *lst)
+// {
+// 	if (lst == 0)
+// 		return (0);
+// 	while ((lst->prev) != 0)
+// 		lst = lst->prev;
+// 	return (lst);
+// }
 
 t_node	*ft_lstlast(t_node *lst)
 {
@@ -46,8 +57,12 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 		return ;
 	}
 	curr = *lst;
-	while (curr->next)
-		curr = curr->next;
-	curr->next = new;
-	new->next = 0;
+	while (curr -> next)
+	{
+		curr -> next -> prev = curr;
+		curr = curr -> next;
+	}
+	curr -> next = new;
+	new -> prev = curr;
+	new -> next = 0;
 }
