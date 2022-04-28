@@ -17,7 +17,7 @@ typedef struct s_deque
 {
     int size;
     struct s_node   *head;
-    struct s_node   *tail; 
+    struct s_node   *tail;
 }                   t_deque;
 
 int	    ft_atoi(const char *str);
@@ -31,6 +31,7 @@ void	print_lst_deq(t_deque *deque);
 void	ft_swap_a(t_deque *deque_a);
 void	ft_swap_b(t_deque *deque_b);
 void	ft_swap_ab(t_deque *deque_a, t_deque *deque_b);
+void    ft_push_a(t_deque *deque_a, t_deque *deque_b);
 void	ft_push_b(t_deque *deque_a, t_deque *deque_b);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int value);

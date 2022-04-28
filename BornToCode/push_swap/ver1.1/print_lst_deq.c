@@ -1,10 +1,11 @@
 #include "push_swap.h"
 
+//값이 없을 경우 출력 방지하기
 void	print_lst(t_deque *deque)
 {
 	t_node	*curr;
 
-	curr = deque -> head;
+	curr = deque->head;
 	while (curr)
 	{
 		printf("value : %d, index %d\n", curr -> value, curr -> index);
@@ -21,6 +22,11 @@ void	print_deq(t_deque *deque)
 
 void	print_lst_deq(t_deque *deque)
 {
+	if (deque->head == 0)
+	{
+		printf("값이 없습니다\n");
+        return ;
+	}
 	print_lst(deque);
 	print_deq(deque);
 }
