@@ -27,12 +27,23 @@ int	main(int ac, char **av)
 
 	//푸시하기
 	printf(">>>>>>>>>>>푸시 a, b 출력<<<<<<<<<<<\n");
-	// ft_push_b(deque_a, deque_b);
-	ft_push_a(deque_a, deque_b);
+	ft_push_b(deque_a, deque_b);
+	ft_push_b(deque_a, deque_b);
+	// ft_push_a(deque_a, deque_b);
 	printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
 	print_lst_deq(deque_a);
 	printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
 	print_lst_deq(deque_b);
-	// system("leaks a.out");
+
+	//로테이트하기
+	printf(">>>>>>>>>>>로테이트 a, b 출력<<<<<<<<<<<\n");
+	// ft_rotate_a(deque_a);
+	// ft_rotate_b(deque_b);
+	ft_rotate_ab(deque_a, deque_b);
+	printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
+	print_lst_deq(deque_a);
+	printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
+	print_lst_deq(deque_b);
+	system("leaks a.out");
     return (0);
 }
