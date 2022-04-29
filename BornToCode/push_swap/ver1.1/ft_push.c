@@ -23,11 +23,8 @@ void	ft_push_a(t_deque *deque_a, t_deque *deque_b)
 	deque_a->head = node_b;
 	if (!deque_a->tail)
 		deque_a->tail = node_b;
-	// printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
-	// print_lst_deq(deque_a);
-	// printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
-	// print_lst_deq(deque_b);
 	printf("pa\n");
+	// print_node(deque_a);
 }
 
 void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
@@ -53,9 +50,5 @@ void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
 	deque_b->head = node_a;
 	if (!deque_b->tail)
 		deque_b->tail = node_a;
-	// printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
-	// print_lst_deq(deque_a);
-	// printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
-	// print_lst_deq(deque_b);
 	printf("pb\n");
 }

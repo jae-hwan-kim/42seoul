@@ -13,6 +13,7 @@ void	ft_swap_a(t_deque *deque_a)
 	deque_a -> head = curr -> prev;
 	//바꿔야함.
 	printf("sa\n");
+	// print_node(deque_a);
 }
 
 void	ft_swap_b(t_deque *deque_b)

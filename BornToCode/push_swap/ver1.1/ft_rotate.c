@@ -15,6 +15,7 @@ void	ft_rotate_a(t_deque *deque_a)
     node_a -> next = 0;
 
 	printf("ra\n");
+	// print_node(deque_a);
 }
 
 void	ft_rotate_b(t_deque *deque_b)
