@@ -28,7 +28,7 @@ void	ft_lstadd_back(t_node **lst, t_node *new);
 void    ft_deqadd_tail(t_deque *deque, t_node *node_a);
 void    *t_deqadd_head(t_deque *deque, t_node *node_a);
 void	print_lst_deq(t_deque *deque);
-void	print_node(t_node node);
+void	print_node(t_node *node);
 void	ft_swap_a(t_deque *deque_a);
 void	ft_swap_b(t_deque *deque_b);
 void	ft_swap_ab(t_deque *deque_a, t_deque *deque_b);

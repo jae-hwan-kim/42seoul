@@ -15,28 +15,37 @@ int	main(int ac, char **av)
 	deque_a = ft_deqnew(deque_a);
 	deque_b = ft_deqnew(deque_b);
 	//연결리스트 만들기
-	printf(">>>>>>>>>>>초기 덱 a 출력<<<<<<<<<<<\n");
+	printf("\n\n>>>>>>>>>>>초기 덱 a 출력<<<<<<<<<<<\n\n");
     ft_make_list(av, deque_a, &node_a);
 	ft_make_index(node_a);
 	print_lst_deq(deque_a);
 
 	//스왑하기
 	// printf(">>>>>>>>>>>스왑 a 출력<<<<<<<<<<<\n");
-	// ft_swap_a(deque_a);
+	ft_swap_a(deque_a);
 	// print_lst_deq(deque_a);
+	printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
+	print_lst_deq(deque_a);
+	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
+	print_lst_deq(deque_b);
+	printf("\n\n***********Node_a************\n\n");
+	print_node(deque_a -> head);
+	printf("\n\n***********Node_b************\n\n");
+	print_node(deque_b -> head);
 
 	//푸시하기
-	printf(">>>>>>>>>>>푸시 a, b 출력<<<<<<<<<<<\n");
-	ft_push_b(deque_a, deque_b);
-	ft_push_b(deque_a, deque_b);
-	print_node(*(deque_a) -> head);
-	printf("************************");
-	print_node(*(deque_b) -> head);
-	// ft_push_a(deque_a, deque_b);
-	// printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
+	// printf("\n\n>>>>>>>>>>>푸시 a, b 출력<<<<<<<<<<<\n\n");
+	// ft_push_b(deque_a, deque_b);
+	// ft_push_b(deque_a, deque_b);
+	// printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
 	// print_lst_deq(deque_a);
-	// printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
+	// printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
 	// print_lst_deq(deque_b);
+	// printf("\n\n***********Node_a************\n\n");
+	// print_node(*deque_a -> head);
+	// printf("\n\n***********Node_b************\n\n");
+	// print_node(*(deque_b) -> head);
+	// ft_push_a(deque_a, deque_b);
 
 	//로테이트하기
 	// printf(">>>>>>>>>>>로테이트 a, b 출력<<<<<<<<<<<\n");
