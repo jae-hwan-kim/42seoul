@@ -7,7 +7,10 @@ void	print_node(t_node *node)
 	t_node	*curr;
 
 	if (node == 0 || node == 0)
+	{
+		printf("노드가 없습니다.\n");
 		return ;
+	}
 	curr = node;
 	printf ("++++++++++오퍼레이션 작동 후, prev 및 next 디버깅++++++++++++\n");
 	while (curr)
@@ -18,6 +21,11 @@ void	print_node(t_node *node)
 			printf("첫 노드\n");
 			printf("이전 값 : -, 이전 인덱스 : - <-- ");
 			printf("값 : %d, 인덱스 : %d --> ", curr -> value, curr -> index);
+			if (curr -> next == 0)
+			{
+				printf("첫 번째이자 마지막 노드입니다.\n");
+				return ;
+			}	
 			printf("이후 값 : %d, 이후 인덱스 : %d\n", curr -> next -> value, curr -> next -> index);
 			printf("------------------------------------------------\n");
 		}
@@ -51,8 +59,8 @@ void	print_lst(t_deque *deque)
 
 void	print_deq(t_deque *deque)
 {
-	printf("deq -> head -> value [%d] : index %d : size %d\n", deque -> head -> value, deque -> head -> index, deque -> size);
-	printf("deq -> tail -> value [%d] : index %d : size %d\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
+	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
+	printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
 	printf("-----------------\n");
 }
 
@@ -65,4 +73,16 @@ void	print_lst_deq(t_deque *deque)
 	}
 	print_lst(deque);
 	print_deq(deque);
+}
+
+void	print_all(t_deque *deque_a, t_deque *deque_b)
+{
+	printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
+	print_lst_deq(deque_a);
+	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
+	print_lst_deq(deque_b);
+	printf("\n\n***********Node_a************\n\n");
+	print_node(deque_a -> head);
+	printf("\n\n***********Node_b************\n\n");
+	print_node(deque_b -> head);
 }

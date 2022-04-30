@@ -14,19 +14,6 @@ t_node	*ft_lstnew(int value)
 	return (n_list);
 }
 
-int	ft_lstsize(t_node *lst)
-{
-	int	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
-}
-
 t_node	*ft_lstlast(t_node *lst)
 {
 	if (lst == 0)

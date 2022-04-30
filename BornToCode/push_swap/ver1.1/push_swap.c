@@ -24,45 +24,21 @@ int	main(int ac, char **av)
 	// printf(">>>>>>>>>>>스왑 a 출력<<<<<<<<<<<\n");
 	ft_swap_a(deque_a);
 	// print_lst_deq(deque_a);
-	printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
-	print_lst_deq(deque_a);
-	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
-	print_lst_deq(deque_b);
-	printf("\n\n***********Node_a************\n\n");
-	print_node(deque_a -> head);
-	printf("\n\n***********Node_b************\n\n");
-	print_node(deque_b -> head);
-
+	
 	//푸시하기
 	// printf("\n\n>>>>>>>>>>>푸시 a, b 출력<<<<<<<<<<<\n\n");
-	// ft_push_b(deque_a, deque_b);
-	// ft_push_b(deque_a, deque_b);
-	// printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
-	// print_lst_deq(deque_a);
-	// printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
-	// print_lst_deq(deque_b);
-	// printf("\n\n***********Node_a************\n\n");
-	// print_node(*deque_a -> head);
-	// printf("\n\n***********Node_b************\n\n");
-	// print_node(*(deque_b) -> head);
-	// ft_push_a(deque_a, deque_b);
+	ft_push_b(deque_a, deque_b);
+	ft_push_b(deque_a, deque_b);
 
 	//로테이트하기
 	// printf(">>>>>>>>>>>로테이트 a, b 출력<<<<<<<<<<<\n");
-	// ft_rotate_ab(deque_a, deque_b);
-	// printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
-	// print_lst_deq(deque_a);
-	// printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
-	// print_lst_deq(deque_b);
+	ft_rotate_ab(deque_a, deque_b);
+	
 
 	//리버스 로테이트
 	// printf(">>>>>>>>>>>리버스 로테이트 a, b 출력<<<<<<<<<<<\n");
-	// ft_reverse_rotate_a(deque_a);
-	// printf(">>>>>>>>>>>a<<<<<<<<<<<\n");
-	// print_lst_deq(deque_a);
-	// printf(">>>>>>>>>>>b<<<<<<<<<<<\n");
-	// print_lst_deq(deque_b);
-
-	// system("leaks a.out");
+	// ft_reverse_rotate_ab(deque_a, deque_b);
+	print_all(deque_a, deque_b);
+	system("leaks a.out");
     return (0);
 }
