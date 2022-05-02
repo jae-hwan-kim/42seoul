@@ -20,6 +20,7 @@ typedef struct s_deque
     struct s_node   *tail;
 }                   t_deque;
 
+int	    ft_printf(const char *argu, ...);
 int	    ft_atoi(const char *str);
 int     ft_lstsize(t_node *lst);
 void	ft_renew_lstsize(t_deque *deque_a, t_deque *deque_b);

@@ -2,6 +2,8 @@
 
 int	main(int ac, char **av)
 {
+	(void) ac;
+	(void) **av;
 	t_node	*node_a;
 	t_node	*node_b;
     t_deque	*deque_a;
@@ -12,10 +14,12 @@ int	main(int ac, char **av)
 	i = 0;
 	node_a = 0;
 	node_b = 0;
+	deque_a = 0;
+	deque_b = 0;
 	deque_a = ft_deqnew(deque_a);
 	deque_b = ft_deqnew(deque_b);
 	//연결리스트 만들기
-	printf("\n\n>>>>>>>>>>>초기 덱 a 출력<<<<<<<<<<<\n\n");
+	ft_printf("\n\n>>>>>>>>>>>초기 덱 a 출력<<<<<<<<<<<\n\n");
     ft_make_list(av, deque_a, &node_a);
 	ft_make_index(node_a);
 	print_lst_deq(deque_a);
@@ -39,6 +43,6 @@ int	main(int ac, char **av)
 	// printf(">>>>>>>>>>>리버스 로테이트 a, b 출력<<<<<<<<<<<\n");
 	// ft_reverse_rotate_ab(deque_a, deque_b);
 	print_all(deque_a, deque_b);
-	system("leaks a.out");
+	system("leaks push_swap");
     return (0);
 }
