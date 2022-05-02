@@ -1,58 +1,63 @@
 #include "push_swap.h"
 
-void	push_swap(char **av, t_deque *deque_a, t_deque *deque_b, t_node *node_a)
+size_t	ft_strlen(const char *str)
 {
-	ft_printf("\n\n>>>>>>>>>>>초기 덱 a 출력<<<<<<<<<<<\n\n");
-    ft_make_list(av, deque_a, &node_a);
-	ft_make_index(node_a);
-	print_lst_deq(deque_a);
+	size_t	i;
 
-	// //스왑하기
-	// // printf(">>>>>>>>>>>스왑 a 출력<<<<<<<<<<<\n");
-	// ft_swap_a(deque_a);
-	// // print_lst_deq(deque_a);
-	
-	// //푸시하기
-	// printf("\n\n>>>>>>>>>>>푸시 a, b 출력<<<<<<<<<<<\n\n");
-	ft_push_b(deque_a, deque_b);
-	ft_push_b(deque_a, deque_b);
-
-	// //로테이트하기
-	// // printf(">>>>>>>>>>>로테이트 a, b 출력<<<<<<<<<<<\n");
-	// ft_rotate_ab(deque_a, deque_b);
-	
-
-	// //리버스 로테이트
-	// // printf(">>>>>>>>>>>리버스 로테이트 a, b 출력<<<<<<<<<<<\n");
-	// // ft_reverse_rotate_ab(deque_a, deque_b);
-	print_all(deque_a, deque_b);
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
-void	ft_init(t_deque **deque_a, t_deque **deque_b)
+char	**check_error_and_split(int ac, char **av)
 {
-	*deque_a = ft_deqnew(*deque_a);
-	*deque_b = ft_deqnew(*deque_b);
-	ft_printf("init scope - a 덱 : %p, b 덱 : %p\n", deque_a, deque_b);
+	int i;
+	int	j;
+	int	length;
+
+	i = 0;
+	if (ac <= 1)
+		exit(0);
+	else
+	{
+		ft_split(av);
+		while (0 != av[i])
+		{
+			ft_printf("스플릿 문자열 출력 - %s\n", av[i]);
+			i++;	
+		}
+	}
+	return (av);
 }
 
 int	main(int ac, char **av)
 {
-	t_node	*node_a;
     t_deque	*deque_a;
 	t_deque	*deque_b;
-	(void) ac;
-	int	i;
 
-	//check_error(av);
-	i = 0;
-	node_a = 0;
 	deque_a = 0;
 	deque_b = 0;
-	//덱 주소 출력하기
-	ft_printf("바꾸기 전 - a 덱 : %p, b 덱 : %p\n", deque_a, deque_b);
-	ft_init(&deque_a, &deque_b);
-	ft_printf("바꾼 후 - a 덱 : %p, b 덱 : %p\n", &deque_a, &deque_b);
-	push_swap(av, deque_a, deque_b, node_a);
+	av = check_error_and_split(ac, av);
+	ft_deq_init(&deque_a, &deque_b);
+	push_swap(av, deque_a, deque_b);
 	system("leaks push_swap");
     return (0);
 }
+
+// while (0 != av[i])
+// {
+// 	j = 0;
+// 	length = ft_strlen(av[i]);
+// 	if (0 == length)
+// 	{
+// 		ft_printf("Error");
+// 		exit(1);
+// 	}
+// 	else
+// 	{
+// 	}
+// 	i++;
+// }

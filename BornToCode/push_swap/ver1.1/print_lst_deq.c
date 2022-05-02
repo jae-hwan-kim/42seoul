@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 //값이 없을 경우 출력 방지하기
 
@@ -59,8 +60,8 @@ void	print_lst(t_deque *deque)
 
 void	print_deq(t_deque *deque)
 {
-	ft_printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
-	ft_printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
+	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
+	printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
 	ft_printf("-----------------\n");
 }
 
@@ -71,8 +72,8 @@ void	print_lst_deq(t_deque *deque)
 		ft_printf("값이 없습니다\n");
         return ;
 	}
-	print_lst(deque);
 	print_deq(deque);
+	print_lst(deque);
 }
 
 void	print_all(t_deque *deque_a, t_deque *deque_b)

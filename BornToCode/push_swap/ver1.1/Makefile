@@ -11,6 +11,7 @@ INCLUDE=-I ./Libft -I ./ft_printf
 RM=rm -f
 CP=cp
 SRC= main.c \
+	 push_swap.c \
 	 ft_make_list.c \
 	 ft_make_index.c \
 	 ft_deque_list.c \
