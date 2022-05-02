@@ -24,7 +24,7 @@ void	ft_push_a(t_deque *deque_a, t_deque *deque_b)
 	if (!deque_a->tail)
 		deque_a->tail = node_b;
 	ft_renew_lstsize(deque_a, deque_b);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
@@ -51,5 +51,5 @@ void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
 	if (!deque_b->tail)
 		deque_b->tail = node_a;
 	ft_renew_lstsize(deque_a, deque_b);
-	printf("pb\n");
+	ft_printf("pb\n");
 }
