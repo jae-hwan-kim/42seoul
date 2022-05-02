@@ -14,8 +14,6 @@ int	main(int ac, char **av)
 	i = 0;
 	node_a = 0;
 	node_b = 0;
-	deque_a = 0;
-	deque_b = 0;
 	deque_a = ft_deqnew(deque_a);
 	deque_b = ft_deqnew(deque_b);
 	//연결리스트 만들기
