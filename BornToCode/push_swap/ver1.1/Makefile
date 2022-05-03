@@ -12,6 +12,8 @@ RM=rm -f
 CP=cp
 SRC= main.c \
 	 push_swap.c \
+	 print_lst_deq.c \
+	 check_error.c \
 	 ft_make_list.c \
 	 ft_make_index.c \
 	 ft_deque_list.c \
@@ -20,8 +22,8 @@ SRC= main.c \
 	 ft_swap.c \
 	 ft_rotate.c \
 	 ft_reverse_rotate.c \
-	 print_lst_deq.c \
-	 ft_atoi.c
+	 ft_atoi.c \
+	 ft_split.c
 
 	
 OBJ=$(SRC:.c=.o)

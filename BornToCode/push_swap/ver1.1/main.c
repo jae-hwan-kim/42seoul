@@ -14,21 +14,24 @@ size_t	ft_strlen(const char *str)
 
 char	**check_error_and_split(int ac, char **av)
 {
-	int i;
-	int	j;
-	int	length;
+	int	i;
 
 	i = 0;
 	if (ac <= 1)
 		exit(0);
+	else if (check_error(av))
+	{
+		ft_printf("Error\n");
+		exit (1);
+	}
 	else
 	{
 		ft_split(av);
-		while (0 != av[i])
-		{
-			ft_printf("스플릿 문자열 출력 - %s\n", av[i]);
-			i++;	
-		}
+		// while (0 != av[i])
+		// {
+		// 	ft_printf("스플릿 문자열 출력 - %s\n", av[i]);
+		// 	i++;	
+		// }
 	}
 	return (av);
 }
@@ -46,18 +49,3 @@ int	main(int ac, char **av)
 	system("leaks push_swap");
     return (0);
 }
-
-// while (0 != av[i])
-// {
-// 	j = 0;
-// 	length = ft_strlen(av[i]);
-// 	if (0 == length)
-// 	{
-// 		ft_printf("Error");
-// 		exit(1);
-// 	}
-// 	else
-// 	{
-// 	}
-// 	i++;
-// }

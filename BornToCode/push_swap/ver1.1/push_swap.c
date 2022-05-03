@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push_swap(char *av, t_deque *deque_a, t_deque *deque_b)
+void	push_swap(char **av, t_deque *deque_a, t_deque *deque_b)
 {
 	t_node	*node_a;
 

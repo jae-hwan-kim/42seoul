@@ -19,11 +19,19 @@ typedef struct s_deque
     struct s_node   *tail;
 }                   t_deque;
 
-int	    ft_printf(const char *argu, ...);
 void	push_swap(char **av, t_deque *deque_a, t_deque *deque_b);
-void	ft_deq_init(t_deque **deque_a, t_deque **deque_b);
+int	    ft_printf(const char *argu, ...);
 int	    ft_atoi(const char *str);
+char	**ft_split(char **av);
 size_t	ft_strlen(const char *str);
+
+
+int	    check_null(char **av);
+int	    check_spaces(char **av);
+int	    check_digit(char **av);
+int	    check_sign(char **av);
+int	    check_error(char **av);
+
 
 void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a);
 void	ft_make_index(t_node *node_a);
@@ -31,6 +39,7 @@ void	ft_make_index(t_node *node_a);
 int     ft_lstsize(t_node *lst);
 void	ft_renew_lstsize(t_deque *deque_a, t_deque *deque_b);
 void	ft_lstadd_back(t_node **lst, t_node *new);
+void	ft_deq_init(t_deque **deque_a, t_deque **deque_b);
 void    ft_deqadd_tail(t_deque *deque, t_node *node_a);
 void    ft_deqadd_head(t_deque *deque, t_node *node_a);
 
