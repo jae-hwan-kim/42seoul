@@ -79,7 +79,7 @@ int	check_sign(char **av)
 			if ('+' == av[i][j] || '-' == av[i][j])
 			{
 				j++;
-				if (0 == av[i][j]
+				if (0 == av[i][j] || '+' == av[i][j] || '-' == av[i][j]
 				 || (9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
 					return (1);
 			}

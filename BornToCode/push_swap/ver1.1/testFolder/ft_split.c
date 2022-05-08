@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int	count_size(char **av)
 {
@@ -28,67 +30,94 @@ int	count_size(char **av)
 	return (length);
 }
 
-// char	*ft_w_make(char *word, char const *s, int n, int w_len)
-// {
-// 	int		i;
+void	make_str(char *word, char *av, int position, int length) // 0, 1
+{
+	int		i;
 
-// 	i = 0;
-// 	while (w_len > 0)
-// 	{
-// 		word[i] = s[n - w_len];
-// 		i++;
-// 		w_len--;
-// 	}
-// 	word[i] = '\0';
-// 	return (word);
-// }
+	i = 0;
+	while (i < length)
+	{
+		word[i] = av[position];
+		position++;
+		i++;
+	}
+	word[i] = '\0';
+}
 
-// char	**ft_split2(char **result, char const *s, int w_len)
-// {
-// 	int		i;
-// 	int		n;
-// 	int		w_len2;
+char	**ft_second_split(char **result, char **av)
+{
+	int		i;
+	int		j;
+	int		index;
+	int		position;
 
-// 	i = 0;
-// 	n = 0;
-// 	w_len2 = 0;
-// 	while (s[n] && i < w_len)
-// 	{
-// 		while (s[n] && s[n] == c)
-// 			n++;
-// 		while (s[n] && s[n] != c)
-// 		{
-// 			n++;
-// 			w_len2++;
-// 		}
-// 		result[i] = (char *)malloc(sizeof(char) * (w_len2 + 1));
-// 		if (result == 0)
-// 			return (0);
-// 		ft_w_make(result[i], s, n, w_len2);
-// 		w_len2 = 0;
-// 		i++;
-// 	}
-// 	result[i] = 0;
-// 	return (result);
-// }
+	i = 1;
+	index = 0;
+	while (0 != av[i])
+	{
+		j = 0;
+		while (0 != av[i][j])
+		{
+			position = j;
+			while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j]
+			 || (0 != av[i][j] && (('0' <= av[i][j] && '9' >= av[i][j]) 
+			 || '+' == av[i][j] || '-' == av[i][j])))
+				j++;
+			result[index] = (char *)malloc(sizeof(char) * (j - position + 1));
+			make_str(result[index], av[i], position, j - position + 1);
+			index++;
+		}
+		i++;
+	}
+	i = 0;
+	return (result);
+}
 
 char	**ft_split(char **av)
 {
-	int		word_len;
+	int		split_size;
+	int		i;
 	char	**result;
 
 	result = 0;
-	word_len = count_size(av);
-	// result = (char **)malloc(sizeof(char *) * (word_len + 1));
-	// if (result == 0)
-	// 	return (0);
-	// ft_split2(result, av, word_len);
-	printf("%d\n", word_len);
+	i = 0;
+	split_size = count_size(av);
+	result = (char **)malloc(sizeof(char *) * split_size + 1);
+	if (result == 0)
+		return (0);
+	result[split_size + 1] = 0;
+	ft_second_split(result, av);
+	i = 0;
+	int	j = 0;
+	while (result[i] != 0)
+	{
+		j = 0;
+		while (result[i][j] != 0)
+		{
+			printf("result[%d][%d] = %c\n", i, j, result[i][j]);
+			j++;
+		}
+		i++;
+	}
 	return (result);
 }
 
 int	main(int ac, char **av)
 {
-	ft_split(av);
+	char i = 0;
+	char j = 0;
+	char	**result = ft_split(av);
+
+	while (result[i] != 0)
+	{
+		j = 0;
+		while (result[i][j] != 0)
+		{
+			printf("result[%d][%d] = %c\n", i, j, result[i][j]);
+			j++;
+		}
+		i++;
+	}
+	system("leaks a.out");
 	return (0);	
 }
