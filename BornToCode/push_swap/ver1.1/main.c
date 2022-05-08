@@ -35,27 +35,29 @@ int	main(int ac, char **av)
 {
     t_deque	*deque_a;
 	t_deque	*deque_b;
-	// int 	i;
-	// int 	j;
+	int 	i;
+	int 	j;
 	char	**parse_parameter;
 
 	deque_a = 0;
 	deque_b = 0;
 	parse_parameter = check_error_and_split(ac, av);
 
-	// i = 0;
-	// while (parse_parameter[i] != 0)
-	// {
-	// 	j = 0;
-	// 	while (parse_parameter[i][j] != 0)
-	// 	{
-	// 		printf("parse_parameter[%d][%d] = %c\n", i, j, parse_parameter[i][j]);
-	// 		j++;
-	// 	}
-	// 	i++;
-	// }
+	i = 0;
+	while (parse_parameter[i] != 0)
+	{
+		j = 0;
+		while (parse_parameter[i][j] != 0)
+		{
+			printf("parse_parameter[%d][%d] = %c\n", i, j, parse_parameter[i][j]);
+			j++;
+		}
+		i++;
+	}
+	printf("--------------------------\n");
 	// ft_deq_init(&deque_a, &deque_b);
 	// push_swap(av, deque_a, deque_b);
+	
 	// system("leaks push_swap");
     return (0);
 }

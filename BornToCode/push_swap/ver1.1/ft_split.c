@@ -56,32 +56,27 @@ char	**ft_second_split(char **result, char **av)
 	while (0 != av[i])
 	{
 		j = 0;
-		// printf("--> av = %c\n", av[i][1]);
-		// printf("--> result = %s\n", result[index]);
 		while (0 != av[i][j])
 		{
 			position = j; //0
 			while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
 			{
-				if (0 != av[i][j])
+				j++;
+				if (0 == av[i][j])
 					break;
-				else
-					j++;
 			}
-			while (('0' <= av[i][j] && '9' >= av[i][j]) 
+			while (('0' <= av[i][j] && '9' >= av[i][j])
 			 || '+' == av[i][j] || '-' == av[i][j])
-			{
-				if (0 != av[i][j])
-					break;
-				else
-					j++;
-			}
+				j++;
 			size = j - position + 1;
 			result[index] = (char *)malloc(sizeof(char) * size);
 			make_str(result[index], av[i], position, size);
+			if (0 == av[i][j])
+				break;
 			index++;
 		}
 		i++;
+		index++;
 	}
 	// printf("dd\n");
 	return (result);
@@ -103,7 +98,7 @@ char	**ft_split(char **av)
 	ft_second_split(result, av);
 	i = 0;
 	int	j = 0;
-	// printf("result = %s\n", result[i]);
+	printf("result = %s\n", result[i]);
 	while (result[i] != 0)
 	{
 		j = 0;
