@@ -9,7 +9,12 @@ t_deque *ft_deqnew(t_deque *lst)
     lst -> head = 0;
     lst -> tail = 0;
     return (lst);
-    
+}
+
+void	ft_deq_init(t_deque **deque_a, t_deque **deque_b)
+{
+	*deque_a = ft_deqnew(*deque_a);
+	*deque_b = ft_deqnew(*deque_b);
 }
 
 void    ft_deqadd_head(t_deque *deque, t_node *node_a)
