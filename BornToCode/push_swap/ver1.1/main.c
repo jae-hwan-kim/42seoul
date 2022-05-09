@@ -15,9 +15,9 @@ int	main(int ac, char **av)
 	{
 		printf("parsing = %d\n", parsing[i++]);
 	}
-	// ft_deq_init(&deque_a, &deque_b);
-	// push_swap(parse_parameter, deque_a, deque_b);
+	ft_deq_init(&deque_a, &deque_b);
+	push_swap(parsing, deque_a, deque_b);
 	// print_lst_deq(deque_a);
-	system("leaks push_swap");
+	system("sudo leaks push_swap");
     return (0);
 }

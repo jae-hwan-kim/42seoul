@@ -1,15 +1,13 @@
 #include "push_swap.h"
 
-void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a)
+void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a)
 {
 	int i;
-	int value;
 	
 	i = 0;
 	while (0 != av[i])
 	{
-		value = ft_atoi(av[i]);
-		ft_lstadd_back(node_a, ft_lstnew(value));
+		ft_lstadd_back(node_a, ft_lstnew(av[i]));
 		i++;
 	}
 	// check_same_number(node_a);

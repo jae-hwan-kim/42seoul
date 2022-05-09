@@ -20,7 +20,7 @@ typedef struct s_deque
     struct s_node   *tail;
 }                   t_deque;
 
-void	push_swap(char **av, t_deque *deque_a, t_deque *deque_b);
+void	push_swap(int *av, t_deque *deque_a, t_deque *deque_b);
 int	    ft_printf(const char *argu, ...);
 int	    ft_atoi(const char *str);
 char	**ft_split(char **av);
@@ -36,7 +36,7 @@ int	    *check_error_and_split(int ac, char **av);
 
 
 
-void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a);
+void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a);
 void	ft_make_index(t_node *node_a);
 
 int     ft_lstsize(t_node *lst);
