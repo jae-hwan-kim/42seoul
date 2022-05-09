@@ -6,10 +6,12 @@ void	ft_make_index(t_node *node_a)
 	int		i;
 	t_node	*checker;
 	t_node	*first_node_a;
+	t_node	*a;
 
 	i = 0;
 	checker = node_a;
 	first_node_a = node_a;
+	a = node_a;
 	while (node_a)
 	{
 		count = 0;

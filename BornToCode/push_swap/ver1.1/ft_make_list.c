@@ -1,21 +1,33 @@
 #include "push_swap.h"
 
-void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a)
+void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a)
 {
 	int i;
-	int value;
 	
-	i = 1;
+	i = 0;
 	while (0 != av[i])
 	{
-		value = ft_atoi(av[i]);
-		ft_lstadd_back(node_a, ft_lstnew(value));
+		ft_lstadd_back(node_a, ft_lstnew(av[i]));
 		i++;
 	}
+	// check_same_number(node_a);
 	deque_a->head = *node_a;
 	deque_a->tail = ft_lstlast(*node_a);
 	deque_a->size = ft_lstsize(*node_a);
 }
+
+// void	check_same_number(t_node **node_a)
+// {
+// 	t_node	*curr;
+// 	t_node	*node;
+
+// 	curr = *node_a;
+// 	while (curr)
+// 	{
+
+// 		curr = curr -> next;
+// 	}
+// }
 
 int	ft_lstsize(t_node *lst)
 {
