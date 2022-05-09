@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int	ft_printf(const char *argu, ...);
+int	printf(const char *argu, ...);
 int	ft_check(int r_printf, const char *argu, va_list ap);
 int	ft_form_check(int *index, const char *argu, va_list ap);
 int	ft_put_c(char c);

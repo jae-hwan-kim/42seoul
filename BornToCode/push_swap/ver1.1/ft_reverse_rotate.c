@@ -14,7 +14,7 @@ void	ft_reverse_rotate_a(t_deque *deque_a)
 	node_a -> next = deque_a -> head;
 	deque_a -> head = node_a;
 
-	ft_printf("rra\n");
+	printf("rra\n");
 	// print_node(deque_a);
 }
 
@@ -32,7 +32,7 @@ void	ft_reverse_rotate_b(t_deque *deque_b)
 	node_b -> next = deque_b -> head;
 	deque_b -> head = node_b;
 
-	ft_printf("rrb\n");
+	printf("rrb\n");
 }
 
 void	ft_reverse_rotate_ab(t_deque *deque_a, t_deque *deque_b)

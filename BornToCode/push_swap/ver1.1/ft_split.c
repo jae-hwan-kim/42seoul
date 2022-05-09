@@ -43,11 +43,24 @@ void	make_str(char *word, char *av, int position, int length) // 0, 1
 	word[i] = '\0';
 }
 
+int	check_size(char **av, int i, int j)
+{
+	while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
+	{
+		j++;
+		if (0 == av[i][j])
+			return (0);
+	}
+	while (('0' <= av[i][j] && '9' >= av[i][j])
+		|| '+' == av[i][j] || '-' == av[i][j])
+		j++;
+	return (j);
+}
+
 char	**ft_second_split(char **result, char **av)
 {
 	int		i;
 	int		j;
-	int		size;
 	int		index;
 	int		position;
 
@@ -58,27 +71,22 @@ char	**ft_second_split(char **result, char **av)
 		j = 0;
 		while (0 != av[i][j])
 		{
-			position = j; //0
-			while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
+			position = j;
+			if (0 != check_size(av, i, j))
 			{
-				j++;
-				if (0 == av[i][j])
-					break;
+				j = check_size(av, i, j);
+				result[index] = (char *)malloc(sizeof(char) * (j - position + 1));
 			}
-			while (('0' <= av[i][j] && '9' >= av[i][j])
-			 || '+' == av[i][j] || '-' == av[i][j])
-				j++;
-			size = j - position + 1;
-			result[index] = (char *)malloc(sizeof(char) * size);
-			make_str(result[index], av[i], position, size);
+			if (0 == result[index])
+				return (0);
+			make_str(result[index], av[i], position, j - position);
 			if (0 == av[i][j])
 				break;
 			index++;
 		}
-		i++;
 		index++;
+		i++;
 	}
-	// printf("dd\n");
 	return (result);
 }
 
@@ -96,18 +104,5 @@ char	**ft_split(char **av)
 		return (0);
 	result[split_size + 1] = 0;
 	ft_second_split(result, av);
-	i = 0;
-	int	j = 0;
-	printf("result = %s\n", result[i]);
-	while (result[i] != 0)
-	{
-		j = 0;
-		while (result[i][j] != 0)
-		{
-			printf("result[%d][%d] = %c\n", i, j, result[i][j]);
-			j++;
-		}
-		i++;
-	}
 	return (result);
 }

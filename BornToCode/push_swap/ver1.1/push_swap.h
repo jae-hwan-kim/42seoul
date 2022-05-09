@@ -3,6 +3,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct	s_node
 {
@@ -31,6 +32,8 @@ int	    check_spaces(char **av);
 int	    check_digit(char **av);
 int	    check_sign(char **av);
 int	    check_error(char **av);
+int	    *check_error_and_split(int ac, char **av);
+
 
 
 void	ft_make_list(char **av, t_deque *deque_a, t_node **node_a);

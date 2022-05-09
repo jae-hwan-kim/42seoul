@@ -22,8 +22,9 @@ SRC= main.c \
 	 ft_swap.c \
 	 ft_rotate.c \
 	 ft_reverse_rotate.c \
-	 ft_atoi.c \
-	 ft_split.c
+	 ft_util.c \
+	 ft_split.c \
+	 ft_parse.c
 
 	
 OBJ=$(SRC:.c=.o)
@@ -47,6 +48,7 @@ clean :
 fclean : clean
 	make -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
+	$(RM) $(LIBFT)
 
 re : fclean all
 
