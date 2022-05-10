@@ -10,6 +10,7 @@ void	push_swap(int *av, t_deque *deque_a, t_deque *deque_b)
 	ft_make_index(node_a);
 	print_lst_deq(deque_a);
 	print_lst_deq(deque_b);
+	print_all(deque_a, deque_b);
 
 	// // //스왑하기
 	// // // printf(">>>>>>>>>>>스왑 a 출력<<<<<<<<<<<\n");

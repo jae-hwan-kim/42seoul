@@ -50,7 +50,9 @@ void	print_lst(t_deque *deque)
 	curr = deque->head;
 	while (curr)
 	{
-		printf("value : %d, index %d\n", curr -> value, curr -> index);
+		// printf("value : %d, index %d\n", curr -> value, curr -> index);
+		printf("value : %d, ", curr -> value);
+		printf("index %d\n", curr -> index);
 		curr = curr -> next;
 	}
 }
@@ -58,7 +60,7 @@ void	print_lst(t_deque *deque)
 void	print_deq(t_deque *deque)
 {
 	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
-	printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
+	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
 	printf("-----------------\n");
 }
 
