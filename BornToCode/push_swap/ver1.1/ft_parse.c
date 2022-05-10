@@ -1,5 +1,27 @@
 #include "push_swap.h"
 
+void	parameter_compare(int *result)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (0 != result[i])
+	{
+		j = i + 1;
+		while (0 != result[j])
+		{
+			if (result[i] == result[j])
+			{
+				printf("Error\n");
+				exit (1);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 int	*check_error_and_split(int ac, char **av)
 {
 	int		i;
@@ -32,5 +54,6 @@ int	*check_error_and_split(int ac, char **av)
 	result[i] = 0;
     free(temp);
     temp = 0;
+	parameter_compare(result);
 	return (result);
 }
