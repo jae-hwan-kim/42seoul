@@ -16,21 +16,3 @@ void	ft_deq_init(t_deque **deque_a, t_deque **deque_b)
 	*deque_a = ft_deqnew(*deque_a);
 	*deque_b = ft_deqnew(*deque_b);
 }
-
-void    ft_deqadd_head(t_deque *deque, t_node *node_a)
-{
-    // if (deque == 0 || node_a == 0)
-    // {
-    //     //clear 예외조건 필요
-    // }
-    deque->head = node_a;
-}
-
-void    ft_deqadd_tail(t_deque *deque, t_node *node_a)
-{
-    // if (deque == 0 || node_a == 0)
-    // {
-    //     //clear 예외조건 필요
-    // }
-    deque->tail = ft_lstlast(node_a);
-}

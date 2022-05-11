@@ -14,8 +14,7 @@ SRC= main.c \
 	 push_swap.c \
 	 print_lst_deq.c \
 	 check_error.c \
-	 ft_make_list.c \
-	 ft_make_index.c \
+	 ft_make_list_index.c \
 	 ft_deque_list.c \
 	 ft_node_list.c \
 	 ft_push.c \

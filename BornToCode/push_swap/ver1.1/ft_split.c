@@ -1,5 +1,6 @@
 #include "push_swap.h"
 #include <stdio.h>
+#include <string.h>
 
 int	count_size(char **av)
 {
@@ -45,6 +46,9 @@ void	make_str(char *word, char *av, int position, int length) // 0, 1
 
 int	check_size(char **av, int i, int j)
 {
+	// int	size;
+
+	// size = sizeof(strlenav[i])/sizeof(av[i][j]);
 	while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
 	{
 		j++;
@@ -98,6 +102,7 @@ char	**ft_split(char **av)
 
 	result = 0;
 	i = 0;
+	printf("%lu\n", sizeof(strlen(av[4]))/sizeof(av[4][1]));
 	split_size = count_size(av);
 	result = (char **)malloc(sizeof(char *) * split_size + 1);
 	if (result == 0)

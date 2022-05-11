@@ -53,7 +53,7 @@ void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
 	if (!deque_b->tail)
 		deque_b->tail = node_a;
 	ft_renew_lstsize(deque_a, deque_b);
-	printf("deq -> head -> size [%d]\n", deque_a -> size);
-	printf("deq -> head -> size [%d]\n", deque_b -> size);
+	// printf("deq -> head -> size [%d]\n", deque_a -> size);
+	// printf("deq -> head -> size [%d]\n", deque_b -> size);
 	printf("pb\n");
 }

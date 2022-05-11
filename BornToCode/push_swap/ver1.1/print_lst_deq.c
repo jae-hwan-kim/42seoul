@@ -60,7 +60,7 @@ void	print_lst(t_deque *deque)
 void	print_deq(t_deque *deque)
 {
 	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
-	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
+	printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
 	printf("-----------------\n");
 }
 
@@ -81,8 +81,8 @@ void	print_all(t_deque *deque_a, t_deque *deque_b)
 	print_lst_deq(deque_a);
 	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
 	print_lst_deq(deque_b);
-	printf("\n\n***********Node_a************\n\n");
-	print_node(deque_a -> head);
-	printf("\n\n***********Node_b************\n\n");
-	print_node(deque_b -> head);
+	// printf("\n\n***********Node_a************\n\n");
+	// print_node(deque_a -> head);
+	// printf("\n\n***********Node_b************\n\n");
+	// print_node(deque_b -> head);
 }

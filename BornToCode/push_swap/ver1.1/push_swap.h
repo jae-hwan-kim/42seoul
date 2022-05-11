@@ -20,12 +20,11 @@ typedef struct s_deque
     struct s_node   *tail;
 }                   t_deque;
 
-void	push_swap(int *av, t_deque *deque_a, t_deque *deque_b);
+void	push_swap(t_deque *deque_a, t_deque *deque_b);
 int	    ft_printf(const char *argu, ...);
 int	    ft_atoi(const char *str);
 char	**ft_split(char **av);
 size_t	ft_strlen(const char *str);
-
 
 int	    check_null(char **av);
 int	    check_spaces(char **av);
@@ -34,10 +33,9 @@ int	    check_sign(char **av);
 int	    check_error(char **av);
 int	    *check_error_and_split(int ac, char **av);
 
-
-
 void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a);
 void	ft_make_index(t_node *node_a);
+void	ft_make_list_index(int *av, t_deque *deque_a, t_node *node_a);
 
 int     ft_lstsize(t_node *lst);
 void	ft_renew_lstsize(t_deque *deque_a, t_deque *deque_b);
@@ -65,6 +63,7 @@ void	ft_reverse_rotate_a(t_deque *deque_a);
 void	ft_reverse_rotate_b(t_deque *deque_b);
 void	ft_reverse_rotate_ab(t_deque *deque_a, t_deque *deque_b);
 
+void	a_to_b(t_deque *deque_a, t_deque *deque_b);
 t_node	*ft_lstlast(t_node *lst);
 t_node	*ft_lstnew(int value);
 t_deque *ft_deqnew(t_deque *lst);
