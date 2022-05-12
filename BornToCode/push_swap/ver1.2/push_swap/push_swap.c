@@ -9,7 +9,8 @@ void	a_to_b(t_deque *deque_a, t_deque *deque_b)
 
 	size = deque_a->size;
 	num = 0;
-	chunk = (0.000000053 * size * size) +  (0.03 * size) + 14.5;
+	// chunk = (0.000000053 * size * size) +  (0.03 * size) + 14.5;
+	chunk = 23;
 	while (num < size)
 	{
 		top = deque_a->head->index;
@@ -75,16 +76,12 @@ void	b_to_a(t_deque *deque_a, t_deque *deque_b)
 			ft_push_a(deque_a, deque_b);
 			size--;
 		}
-		print_lst_deq(deque_a);
 	}
 }
 
 void	push_swap(t_deque *deque_a, t_deque *deque_b)
 {
+	//인자가 1개일 때, 2, 3, 4, 5 일 때
 	a_to_b(deque_a, deque_b);
-	print_lst_deq(deque_a);
-	print_lst_deq(deque_b);
 	b_to_a(deque_a, deque_b);
-	print_lst_deq(deque_a);
-	print_lst_deq(deque_b);
 }
