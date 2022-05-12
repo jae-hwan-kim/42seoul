@@ -61,11 +61,12 @@ void	print_deq(t_deque *deque)
 {
 	printf("deq -> head -> value [%d] : index [%d] : size [%d]\n", deque -> head -> value, deque -> head -> index, deque -> size);
 	printf("deq -> tail -> value [%d] : index [%d] : size [%d]\n", deque -> tail -> value, deque -> tail -> index, deque -> size);
-	printf("-----------------\n");
+	printf("\n-----------------\n");
 }
 
 void	print_lst_deq(t_deque *deque)
 {
+	printf("+++++++++++++++++++++++++++++++\n\n");
 	if (deque->head == 0)
 	{
 		printf("값이 없습니다\n");
@@ -77,9 +78,9 @@ void	print_lst_deq(t_deque *deque)
 
 void	print_all(t_deque *deque_a, t_deque *deque_b)
 {
-	printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n\n");
+	printf("\n\n>>>>>>>>>>>a<<<<<<<<<<<\n");
 	print_lst_deq(deque_a);
-	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n\n");
+	printf("\n\n>>>>>>>>>>>b<<<<<<<<<<<\n");
 	print_lst_deq(deque_b);
 	// printf("\n\n***********Node_a************\n\n");
 	// print_node(deque_a -> head);

@@ -4,9 +4,11 @@ void	parameter_compare(int *result)
 {
 	int	i;
 	int	j;
+	int	index;
 
-	i = 0;
-	while (0 != result[i])
+	i = 1;
+	index = 0;
+	while (index < result[0])
 	{
 		j = i + 1;
 		while (0 != result[j])
@@ -19,6 +21,7 @@ void	parameter_compare(int *result)
 			j++;
 		}
 		i++;
+		index++;
 	}
 }
 
