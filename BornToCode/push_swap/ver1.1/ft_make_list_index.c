@@ -51,10 +51,10 @@ void	ft_make_index(t_node *node_a)
 
 void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a)
 {
-	int i;
+	int	i;
 	
-	i = 0;
-	while (0 != av[i])
+	i = 1;
+	while (i <= av[0])
 	{
 		ft_lstadd_back(node_a, ft_lstnew(av[i]));
 		i++;

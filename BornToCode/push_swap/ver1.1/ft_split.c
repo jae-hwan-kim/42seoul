@@ -82,7 +82,10 @@ char	**ft_second_split(char **result, char **av)
 				result[index] = (char *)malloc(sizeof(char) * (j - position + 1));
 			}
 			if (0 == result[index])
-				return (0);
+			{
+				index--;
+				break;
+			}
 			make_str(result[index], av[i], position, j - position);
 			if (0 == av[i][j])
 				break;
@@ -102,7 +105,6 @@ char	**ft_split(char **av)
 
 	result = 0;
 	i = 0;
-	printf("%lu\n", sizeof(strlen(av[4]))/sizeof(av[4][1]));
 	split_size = count_size(av);
 	result = (char **)malloc(sizeof(char *) * split_size + 1);
 	if (result == 0)

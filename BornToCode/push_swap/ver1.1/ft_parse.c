@@ -24,7 +24,7 @@ void	parameter_compare(int *result)
 
 int	*check_error_and_split(int ac, char **av)
 {
-	int		i;
+	int	i;
 	int		length;
 	int		*result;
 	char	**temp;
@@ -42,16 +42,19 @@ int	*check_error_and_split(int ac, char **av)
 	while (temp[i])
 		i++;
 	length = i;
-	result = (int *)malloc(sizeof(int) * (length + 1));
+	result = (int *)malloc(sizeof(int) * (i + 2));//null 및 size 를 위한 공간
+	if (0 == result)
+		exit(1);
+	result[0] = i;
 	i = 0;
 	while (i < length)
 	{
-		result[i] = ft_atoi(temp[i]);
+		result[i + 1] = ft_atoi(temp[i]);
         free(temp[i]);
         temp[i] = 0;
 		i++;
 	}
-	result[i] = 0;
+	result[i + 1] = 0;
     free(temp);
     temp = 0;
 	parameter_compare(result);
