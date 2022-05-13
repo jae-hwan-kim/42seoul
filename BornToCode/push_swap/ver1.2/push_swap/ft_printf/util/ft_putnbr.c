@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:32:52 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/02 17:02:30 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	printf(const char *argu, ...)
+int	ft_putnbr(long long num)
 {
-	int		r_printf;
-	va_list	ap;
+	int	len;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
-	return (r_printf);
+	len = 0;
+	if (num == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	else if (num < 0)
+	{
+		num = -num;
+		len += ft_putchar_fd('-', 1);
+		len += ft_putnbr(num);
+	}
+	else if (num >= 10)
+	{
+		len += ft_putnbr(num / 10);
+		len += ft_putnbr(num % 10);
+	}
+	else
+		len += ft_putchar_fd(num + '0', 1);
+	return (len);
 }

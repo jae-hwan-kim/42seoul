@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:31:59 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/03 17:53:24 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	printf(const char *argu, ...)
+int	ft_puthex(size_t num, char *hex)
 {
-	int		r_printf;
-	va_list	ap;
+	unsigned int	len;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
-	return (r_printf);
+	len = 0;
+	if (num >= 16)
+	{
+		len += ft_puthex(num / 16, hex);
+		len += ft_puthex(num % 16, hex);
+	}
+	else
+		len += ft_putchar_fd(hex[num], 1);
+	return (len);
 }

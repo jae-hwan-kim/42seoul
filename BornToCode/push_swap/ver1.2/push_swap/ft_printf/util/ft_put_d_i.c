@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_d_i.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:32:21 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/01 09:32:24 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	printf(const char *argu, ...)
+int	ft_put_d_i(int num)
 {
-	int		r_printf;
-	va_list	ap;
+	unsigned int	print_d;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
-	return (r_printf);
+	print_d = 0;
+	if (num > -2147483648 || num <= 2147483637)
+		print_d = ft_putnbr(num);
+	return (print_d);
 }

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:32:30 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/02 16:58:27 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	printf(const char *argu, ...)
+int	ft_put_s(char *str)
 {
-	int		r_printf;
-	va_list	ap;
+	int		len;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
-	return (r_printf);
+	len = 0;
+	if (str == 0)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[len] != '\0')
+		len++;
+	write(1, str, len);
+	return (len);
 }

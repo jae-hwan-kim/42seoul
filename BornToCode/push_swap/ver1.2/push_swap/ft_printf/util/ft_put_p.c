@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_put_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:31:18 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/03 17:51:25 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "ft_printf.h"
-
-int	printf(const char *argu, ...)
+int	ft_put_p(size_t num)
 {
-	int		r_printf;
-	va_list	ap;
+	unsigned int	print_p;
+	char			*hex;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
-	return (r_printf);
+	hex = "0123456789abcdef";
+	print_p = 0;
+	print_p += write(1, "0x", 2);
+	print_p += ft_puthex(num, hex);
+	return (print_p);
 }

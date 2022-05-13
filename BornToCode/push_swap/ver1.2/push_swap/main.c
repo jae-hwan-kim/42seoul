@@ -13,9 +13,9 @@ int	main(int ac, char **av)
 	parsing = check_error_and_split(ac, av);
 	ft_deq_init(&deque_a, &deque_b);
 	ft_make_list_index(parsing, deque_a, node_a);
-	printf("\n __a__ \n");
-	print_lst_deq(deque_a);
 	push_swap(deque_a, deque_b);
-	// system("leaks push_swap");
+	// print_lst_deq(deque_a);
+	// print_lst_deq(deque_b);
+	system("leaks push_swap");
     return (0);
 }

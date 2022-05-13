@@ -9,5 +9,5 @@ int	main(void)
 //	ret = NULL;
 //	ret = write (1, "abc\n", 5);
 //	printf("%x\n", NULL);
-	ft_printf("%x\n",NULL);
+	printf("%x\n",NULL);
 }

@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
-/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:27:41 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/05 17:15:34 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	printf(const char *argu, ...)
+int	ft_check(int r_printf, const char *argu, va_list ap)
 {
-	int		r_printf;
-	va_list	ap;
+	int	index;
 
-	r_printf = 0;
-	if (!argu)
-		return (0);
-	va_start (ap, argu);
-	r_printf += ft_check(r_printf, argu, ap);
-	va_end (ap);
+	index = 0;
+	while (argu[index] != '\0')
+	{
+		if (argu[index] != '%')
+			r_printf += ft_putchar_fd(argu[index], 1);
+		else if (argu[index] == '%')
+		{
+			index++;
+			r_printf += ft_form_check(&index, argu, ap);
+		}
+		index++;
+	}
 	return (r_printf);
 }
