@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:38:55 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:39:03 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-#include <stdio.h>
-#include <string.h>
 
 int	count_size(char **av)
 {
@@ -30,7 +40,7 @@ int	count_size(char **av)
 	return (length);
 }
 
-void	make_str(char *word, char *av, int position, int length) // 0, 1
+void	make_str(char *word, char *av, int position, int length)
 {
 	int		i;
 
@@ -46,9 +56,6 @@ void	make_str(char *word, char *av, int position, int length) // 0, 1
 
 int	check_size(char **av, int i, int j)
 {
-	// int	size;
-
-	// size = sizeof(strlenav[i])/sizeof(av[i][j]);
 	while ((9 <= av[i][j] && 13 >= av[i][j]) || 32 == av[i][j])
 	{
 		j++;
@@ -84,11 +91,11 @@ char	**ft_second_split(char **result, char **av)
 			if (0 == result[index])
 			{
 				index--;
-				break;
+				break ;
 			}
 			make_str(result[index], av[i], position, j - position);
 			if (0 == av[i][j])
-				break;
+				break ;
 			index++;
 		}
 		index++;

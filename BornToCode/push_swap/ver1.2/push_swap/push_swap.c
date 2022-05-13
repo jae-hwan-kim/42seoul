@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:31:59 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:32:04 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	a_to_b(t_deque *deque_a, t_deque *deque_b)
@@ -7,13 +19,12 @@ void	a_to_b(t_deque *deque_a, t_deque *deque_b)
 	int	num;
 	int	chunk;
 
-	size = deque_a->size;
+	size = deque_a -> size;
 	num = 0;
-	// chunk = (0.000000053 * size * size) +  (0.03 * size) + 14.5;
 	chunk = 23;
 	while (num < size)
 	{
-		top = deque_a->head->index;
+		top = deque_a -> head -> index;
 		if (top <= num)
 		{
 			ft_push_b(deque_a, deque_b);
@@ -34,24 +45,24 @@ void	a_to_b(t_deque *deque_a, t_deque *deque_b)
 
 void	b_to_a(t_deque *deque_a, t_deque *deque_b)
 {
-	int	top;
-	int	mid;
-	int	size;
-	int	position;
-	t_node *node;
-	
+	int		top;
+	int		mid;
+	int		size;
+	int		position;
+	t_node	*node;
+
 	size = deque_b -> size;
 	while (0 < size)
 	{
 		position = 0;
 		node = deque_b -> head;
-		top = deque_b->head->index;
+		top = deque_b -> head -> index;
 		while (0 != node)
 		{
 			if (size - 1 == node -> index)
-				break;
+				break ;
 			position++;
-			node = node ->next;
+			node = node -> next;
 		}
 		mid = size / 2;
 		if (mid < position)
@@ -59,7 +70,7 @@ void	b_to_a(t_deque *deque_a, t_deque *deque_b)
 			while (0 < size - position)
 			{
 				ft_reverse_rotate_b(deque_b);
-				top = deque_b->head->index;
+				top = deque_b -> head -> index;
 				position++;
 			}
 			ft_push_a(deque_a, deque_b);
@@ -70,7 +81,7 @@ void	b_to_a(t_deque *deque_a, t_deque *deque_b)
 			while (0 < position)
 			{
 				ft_rotate_b(deque_b);
-				top = deque_b->head->index;
+				top = deque_b -> head -> index;
 				position--;
 			}
 			ft_push_a(deque_a, deque_b);
@@ -82,32 +93,32 @@ void	b_to_a(t_deque *deque_a, t_deque *deque_b)
 int	check_sorting(t_deque *deque_a)
 {
 	t_node	*node;
-	int	check_index;
+	int		check_index;
 
 	node = deque_a -> head;
-	check_index = deque_a->head->index;
+	check_index = deque_a -> head -> index;
 	while (0 != node)
 	{
 		if (check_index != node -> index)
 			return (0);
-		node = node -> next;	
+		node = node -> next;
 		check_index++;
 	}
-	return(1);
+	return (1);
 }
 
 void	sort_small_size(t_deque *deque_a, t_deque *deque_b, int size)
 {
-	int	position;
+	int		position;
 	t_node	*node;
 
-	node = deque_a->head;
+	node = deque_a -> head;
 	position = 0;
 	if (size == 2)
 		ft_rotate_a(deque_a);
 	else if (size == 3)
 	{
-		while (2 != deque_a->tail->index)
+		while (2 != deque_a -> tail -> index)
 			ft_rotate_a(deque_a);
 		if (check_sorting(deque_a))
 			return ;
@@ -122,16 +133,16 @@ void	sort_small_size(t_deque *deque_a, t_deque *deque_b, int size)
 			node = node -> next;
 		}
 		if (2 < position)
-			while (deque_a->head->index)
+			while (deque_a -> head -> index)
 				ft_reverse_rotate_a(deque_a);
 		else if (2 >= position)
-			while (deque_a->head->index)
-				ft_rotate_a(deque_a);		
+			while (deque_a -> head -> index)
+				ft_rotate_a(deque_a);
 		ft_push_b(deque_a, deque_b);
-		while (1 != deque_a->head->index)
+		while (1 != deque_a -> head -> index)
 			ft_rotate_a(deque_a);
 		ft_push_b(deque_a, deque_b);
-		while (4 != deque_a->tail->index)
+		while (4 != deque_a -> tail -> index)
 			ft_rotate_a(deque_a);
 		if (!check_sorting(deque_a))
 			ft_swap_a(deque_a);
@@ -142,10 +153,9 @@ void	sort_small_size(t_deque *deque_a, t_deque *deque_b, int size)
 
 void	push_swap(t_deque *deque_a, t_deque *deque_b)
 {
-	//인자가 1개일 때, 2, 3, 4, 5 일 때
 	int	size;
 
-	size = deque_a ->size;
+	size = deque_a -> size;
 	if (check_sorting(deque_a))
 		return ;
 	else if (size <= 3 || size == 5)

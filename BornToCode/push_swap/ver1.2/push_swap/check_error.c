@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:51:14 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:52:42 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	check_spaces(char **av)
@@ -18,7 +30,7 @@ int	check_spaces(char **av)
 				j++;
 			}
 			else
-				break;
+				break ;
 		}
 		i++;
 	}
@@ -94,7 +106,7 @@ int	check_sign(char **av)
 int	check_error(char **av)
 {
 	if (check_null(av) || check_spaces(av)
-	 || check_digit(av) || check_sign(av))
+		|| check_digit(av) || check_sign(av))
 		return (1);
 	return (0);
 }

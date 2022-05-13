@@ -1,55 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:35:58 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:55:16 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_push_a(t_deque *deque_a, t_deque *deque_b)
 {
-	t_node *node_b;
+	t_node	*node_b;
 
-    if (deque_b -> head == 0)
-        return ;
-	node_b = deque_b->head;
-	if (node_b->next)
+	if (deque_b -> head == 0)
+		return ;
+	node_b = deque_b -> head;
+	if (node_b -> next)
 	{
-		(node_b->next)->prev = 0;
-		deque_b->head = node_b->next;
+		node_b -> next -> prev = 0;
+		deque_b -> head = node_b -> next;
 	}
 	else
 	{
-		deque_b->head = 0;
-		deque_b->tail = 0;
+		deque_b -> head = 0;
+		deque_b -> tail = 0;
 	}
-	node_b->next = deque_a->head;
-	if (deque_a->head)
-		(deque_a->head)->prev = node_b;
-	deque_a->head = node_b;
-	if (!deque_a->tail)
-		deque_a->tail = node_b;
+	node_b -> next = deque_a -> head;
+	if (deque_a -> head)
+		deque_a -> head -> prev = node_b;
+	deque_a -> head = node_b;
+	if (!deque_a -> tail)
+		deque_a -> tail = node_b;
 	ft_renew_lstsize(deque_a, deque_b);
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	ft_push_b(t_deque *deque_a, t_deque *deque_b)
 {
-	t_node *node_a;
+	t_node	*node_a;
 
-    if (deque_a -> head == 0)
-        return ;
-	node_a = deque_a->head;
-	if (node_a->next)
+	if (deque_a -> head == 0)
+		return ;
+	node_a = deque_a -> head;
+	if (node_a -> next)
 	{
-		(node_a->next)->prev = NULL;
-		deque_a->head = node_a->next;
+		node_a -> next -> prev = NULL;
+		deque_a -> head = node_a -> next;
 	}
 	else
 	{
-		deque_a->head = NULL;
-		deque_a->tail = NULL;
+		deque_a -> head = NULL;
+		deque_a -> tail = NULL;
 	}
-	node_a->next = deque_b->head;
-	if (deque_b->head)
-		(deque_b->head)->prev = node_a;
-	deque_b->head = node_a;
-	if (!deque_b->tail)
-		deque_b->tail = node_a;
+	node_a -> next = deque_b -> head;
+	if (deque_b -> head)
+		deque_b -> head -> prev = node_a;
+	deque_b -> head = node_a;
+	if (!deque_b -> tail)
+		deque_b -> tail = node_a;
 	ft_renew_lstsize(deque_a, deque_b);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

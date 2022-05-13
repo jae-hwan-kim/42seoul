@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:23:35 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:23:36 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_reverse_rotate_a(t_deque *deque_a)
@@ -13,9 +25,7 @@ void	ft_reverse_rotate_a(t_deque *deque_a)
 	deque_a -> head -> prev = node_a;
 	node_a -> next = deque_a -> head;
 	deque_a -> head = node_a;
-
-	printf("rra\n");
-	// print_node(deque_a);
+	ft_printf("rra\n");
 }
 
 void	ft_reverse_rotate_b(t_deque *deque_b)
@@ -31,8 +41,7 @@ void	ft_reverse_rotate_b(t_deque *deque_b)
 	deque_b -> head -> prev = node_b;
 	node_b -> next = deque_b -> head;
 	deque_b -> head = node_b;
-
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
 void	ft_reverse_rotate_ab(t_deque *deque_a, t_deque *deque_b)

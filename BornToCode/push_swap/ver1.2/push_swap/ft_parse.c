@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:16:21 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:21:09 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	parameter_compare(int *result)
@@ -27,7 +39,7 @@ void	parameter_compare(int *result)
 
 int	*check_error_and_split(int ac, char **av)
 {
-	int	i;
+	int		i;
 	int		length;
 	int		*result;
 	char	**temp;
@@ -45,7 +57,7 @@ int	*check_error_and_split(int ac, char **av)
 	while (temp[i])
 		i++;
 	length = i;
-	result = (int *)malloc(sizeof(int) * (i + 2));//null 및 size 를 위한 공간
+	result = (int *)malloc(sizeof(int) * (i + 2));
 	if (0 == result)
 		exit(1);
 	result[0] = i;
@@ -53,13 +65,13 @@ int	*check_error_and_split(int ac, char **av)
 	while (i < length)
 	{
 		result[i + 1] = ft_atoi(temp[i]);
-        free(temp[i]);
-        temp[i] = 0;
+		free(temp[i]);
+		temp[i] = 0;
 		i++;
 	}
 	result[i + 1] = 0;
-    free(temp);
-    temp = 0;
+	free(temp);
+	temp = 0;
 	parameter_compare(result);
 	return (result);
 }

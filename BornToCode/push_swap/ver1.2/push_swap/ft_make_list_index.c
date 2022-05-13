@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_make_list_index.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 15:14:32 by kimjaehwa         #+#    #+#             */
+/*   Updated: 2022/05/13 15:18:30 by kimjaehwa        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	ft_lstsize(t_node *lst)
@@ -52,7 +64,7 @@ void	ft_make_index(t_node *node_a)
 void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a)
 {
 	int	i;
-	
+
 	i = 1;
 	while (i <= av[0])
 	{
@@ -66,6 +78,6 @@ void	ft_make_list(int *av, t_deque *deque_a, t_node **node_a)
 
 void	ft_make_list_index(int *av, t_deque *deque_a, t_node *node_a)
 {
-    ft_make_list(av, deque_a, &node_a);
+	ft_make_list(av, deque_a, &node_a);
 	ft_make_index(node_a);
 }
