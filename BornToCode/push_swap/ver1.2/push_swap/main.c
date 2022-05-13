@@ -16,6 +16,6 @@ int	main(int ac, char **av)
 	push_swap(deque_a, deque_b);
 	// print_lst_deq(deque_a);
 	// print_lst_deq(deque_b);
-	// system("leaks push_swap");
+	system("leaks push_swap");
     return (0);
 }
