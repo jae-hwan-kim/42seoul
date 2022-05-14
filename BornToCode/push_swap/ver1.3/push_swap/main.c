@@ -26,6 +26,5 @@ int	main(int ac, char **av)
 	ft_deq_init(&deque_a, &deque_b);
 	ft_make_list_index(parsing, deque_a, node_a);
 	push_swap(deque_a, deque_b);
-	system("leaks push_swap");
 	return (0);
 }

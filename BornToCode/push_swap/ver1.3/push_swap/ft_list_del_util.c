@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 14:57:07 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/14 14:57:10 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/05/14 16:29:40 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_node **lst)
 	while (*lst)
 	{
 		curr = (*lst)->next;
-        free(lst);
+		free(lst);
 		*lst = curr;
 	}
 	*lst = 0;
