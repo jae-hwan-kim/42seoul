@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_make_list_index.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 15:14:32 by kimjaehwa         #+#    #+#             */
-/*   Updated: 2022/05/13 15:18:30 by kimjaehwa        ###   ########.fr       */
+/*   Created: 2022/05/13 18:50:59 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/13 18:51:00 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_lstsize(t_node *lst)
-{
-	int	i;
-
-	i = 0;
-	if (0 == lst)
-		return (0);
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
-}
-
-void	ft_renew_lstsize(t_deque *deque_a, t_deque *deque_b)
-{
-	deque_a->size = ft_lstsize(deque_a->head);
-	deque_b->size = ft_lstsize(deque_b->head);
-}
 
 void	ft_make_index(t_node *node_a)
 {

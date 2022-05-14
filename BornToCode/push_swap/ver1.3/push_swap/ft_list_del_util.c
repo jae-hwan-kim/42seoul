@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_list_del_util.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 18:53:41 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/13 18:53:42 by jaekim           ###   ########.fr       */
+/*   Created: 2022/05/14 14:57:07 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/14 16:29:40 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_deque *deque_a, t_deque *deque_b)
+void	ft_lstclear(t_node **lst)
 {
-	int	size;
+	t_node	*curr;
 
-	size = deque_a -> size;
-	if (check_sorting(deque_a))
+	if (lst == 0)
 		return ;
-	else if (size <= 3 || size == 5)
-		sort_small_size(deque_a, deque_b, size);
-	else
+	while (*lst)
 	{
-		a_to_b(deque_a, deque_b);
-		b_to_a(deque_a, deque_b);
+		curr = (*lst)->next;
+		free(lst);
+		*lst = curr;
 	}
+	*lst = 0;
 }

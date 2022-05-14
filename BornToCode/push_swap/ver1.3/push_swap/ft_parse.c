@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 15:16:21 by kimjaehwa         #+#    #+#             */
-/*   Updated: 2022/05/13 16:33:17 by kimjaehwa        ###   ########.fr       */
+/*   Created: 2022/05/13 18:51:15 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/13 19:57:56 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,10 @@ void	parameter_compare(int *result)
 	}
 }
 
-int	*check_error_and_split(int ac, char **av)
+void	make_int_array(int *result, char **temp, int length)
 {
-	int		i;
-	int		length;
-	int		*result;
-	char	**temp;
+	int	i;
 
-	if (ac <= 1)
-		exit(0);
-	else if (check_error(av))
-	{
-		ft_printf("Error\n");
-		exit (1);
-	}
-	else
-		temp = ft_split(av);
-	i = 0;
-	while (temp[i])
-		i++;
-	length = i;
-	result = (int *)malloc(sizeof(int) * (i + 2));
-	if (0 == result)
-		exit(1);
-	result[0] = i;
 	i = 0;
 	while (i < length)
 	{
@@ -72,6 +52,26 @@ int	*check_error_and_split(int ac, char **av)
 	result[i + 1] = 0;
 	free(temp);
 	temp = 0;
+}
+
+int	*check_error_and_split(int ac, char **av)
+{
+	int		i;
+	int		length;
+	int		*result;
+	char	**temp;
+
+	check_error(ac, av);
+	temp = ft_split(av);
+	i = 0;
+	while (temp[i])
+		i++;
+	length = i;
+	result = (int *)malloc(sizeof(int) * (i + 2));
+	if (0 == result)
+		exit(1);
+	result[0] = i;
+	make_int_array(result, temp, length);
 	parameter_compare(result);
 	return (result);
 }

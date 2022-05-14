@@ -1,13 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_util.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/13 18:46:53 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/13 18:46:55 by jaekim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	check_range(long long number)
-{
-	if (-2147483648 > number || 2147483647 < number)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
-}
+#include "push_swap.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -19,6 +22,32 @@ size_t	ft_strlen(const char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
+}
+
+int	check_sorting(t_deque *deque_a)
+{
+	t_node	*node;
+	int		check_index;
+
+	node = deque_a -> head;
+	check_index = deque_a -> head -> index;
+	while (0 != node)
+	{
+		if (check_index != node -> index)
+			return (0);
+		node = node -> next;
+		check_index++;
+	}
+	return (1);
+}
+
+void	int_range(long long number)
+{
+	if (-2147483648 > number || 2147483647 < number)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
 }
 
 int	ft_atoi(const char *str)
@@ -42,6 +71,6 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	check_range(result * sign);
+	int_range(result * sign);
 	return (result * sign);
 }
