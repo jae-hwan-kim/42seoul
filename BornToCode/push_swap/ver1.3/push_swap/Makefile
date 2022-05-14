@@ -12,19 +12,22 @@ RM=rm -f
 CP=cp
 SRC= main.c \
 	 push_swap.c \
-	 print_lst_deq.c \
-	 check_error.c \
+	 ft_sort_small_size.c \
+	 ft_a_to_b.c \
+	 ft_b_to_a.c \
+	 ft_check_error.c \
 	 ft_make_list_index.c \
-	 ft_deque_list.c \
-	 ft_node_list.c \
+	 ft_deque_util.c \
+	 ft_list_util.c \
+	 ft_list_del_util.c \
+	 ft_util.c \
+	 ft_split.c \
+	 ft_split_util.c \
+	 ft_parse.c \
 	 ft_push.c \
 	 ft_swap.c \
 	 ft_rotate.c \
 	 ft_reverse_rotate.c \
-	 ft_util.c \
-	 ft_split.c \
-	 ft_parse.c
-
 	
 OBJ=$(SRC:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 15:23:35 by kimjaehwa         #+#    #+#             */
-/*   Updated: 2022/05/13 15:23:36 by kimjaehwa        ###   ########.fr       */
+/*   Created: 2022/05/13 18:51:52 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/13 18:51:54 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ void	ft_reverse_rotate_b(t_deque *deque_b)
 
 void	ft_reverse_rotate_ab(t_deque *deque_a, t_deque *deque_b)
 {
-    ft_reverse_rotate_a(deque_a);
-    ft_reverse_rotate_b(deque_b);
+	ft_reverse_rotate_a(deque_a);
+	ft_reverse_rotate_b(deque_b);
 }

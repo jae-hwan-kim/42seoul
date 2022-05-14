@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_list_del_util.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 18:53:26 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/13 18:53:27 by jaekim           ###   ########.fr       */
+/*   Created: 2022/05/14 14:57:07 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/14 14:57:10 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_lstclear(t_node **lst)
 {
-	t_deque	*deque_a;
-	t_deque	*deque_b;
-	t_node	*node_a;
-	int		*parsing;
+	t_node	*curr;
 
-	deque_a = 0;
-	deque_b = 0;
-	node_a = 0;
-	parsing = check_error_and_split(ac, av);
-	ft_deq_init(&deque_a, &deque_b);
-	ft_make_list_index(parsing, deque_a, node_a);
-	push_swap(deque_a, deque_b);
-	system("leaks push_swap");
-	return (0);
+	if (lst == 0)
+		return ;
+	while (*lst)
+	{
+		curr = (*lst)->next;
+        free(lst);
+		*lst = curr;
+	}
+	*lst = 0;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   ft_check_error.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimjaehwan <marvin@42.fr>                  +#+  +:+       +#+        */
+/*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 15:51:14 by kimjaehwa         #+#    #+#             */
-/*   Updated: 2022/05/13 15:52:42 by kimjaehwa        ###   ########.fr       */
+/*   Created: 2022/05/13 18:47:06 by jaekim            #+#    #+#             */
+/*   Updated: 2022/05/13 19:58:58 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,15 @@ int	check_sign(char **av)
 	return (0);
 }
 
-int	check_error(char **av)
+void	check_error(int ac, char **av)
 {
+	if (ac <= 1)
+		exit (0);
 	if (check_null(av) || check_spaces(av)
 		|| check_digit(av) || check_sign(av))
-		return (1);
-	return (0);
+	{
+		ft_printf("Error\n");
+		exit (1);
+	}
+	return ;
 }
