@@ -80,8 +80,10 @@ int	check_index(char **result, int index)
 
 void	creat_result(char **result, int *index, int *j, int *position)
 {
-	if (0 != j)
+	if (0 != *j)
 		result[*index] = (char *)malloc(sizeof(char) * (*j - *position + 1));
+	else
+		return ;
 	if (0 == result[*index])
 	{
 		while (0 <= *index)
