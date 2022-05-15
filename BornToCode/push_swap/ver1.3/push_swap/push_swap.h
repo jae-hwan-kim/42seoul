@@ -44,7 +44,7 @@ int		count_size(char **av);
 void	make_str(char *word, char *av, int position, int length);
 int		check_size(char **av, int i, int j);
 int		check_index(char **result, int index);
-void	creat_result(char **result, int *index, int *j, int *position);
+void	create_result(char **result, int *index, int *j, int *position);
 size_t	ft_strlen(const char *str);
 int		check_sorting(t_deque *deque_a);
 

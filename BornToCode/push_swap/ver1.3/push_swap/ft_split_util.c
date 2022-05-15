@@ -78,7 +78,7 @@ int	check_index(char **result, int index)
 	return (0);
 }
 
-void	creat_result(char **result, int *index, int *j, int *position)
+void	create_result(char **result, int *index, int *j, int *position)
 {
 	if (0 != *j)
 		result[*index] = (char *)malloc(sizeof(char) * (*j - *position + 1));

@@ -28,7 +28,7 @@ void	ft_second_split(char **result, char **av)
 		{
 			position = j;
 			j = check_size(av, i, j);
-			creat_result(result, &index, &j, &position);
+			create_result(result, &index, &j, &position);
 			if (check_index(result, index))
 				break ;
 			make_str(result[index], av[i], position, j - position);
