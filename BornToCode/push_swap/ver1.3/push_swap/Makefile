@@ -7,6 +7,8 @@ LIB_NAME=ftprintf
 LIB_DIR= ./ft_printf/
 LIB=$(LIB_DIR)lib$(LIB_NAME).a
 LIBFT=libftprintf.a
+BONUS_DIR= ./push_swap_bonus/
+BONUS=checker
 RM=rm -f
 CP=cp
 SRC= main.c \
@@ -40,7 +42,11 @@ $(LIB) :
 	make -C $(LIB_DIR) all
 	$(CP) $(LIB) ./
 
-all : $(NAME)
+$(BONUS) :
+	make -C $(BONUS_DIR) all
+	$(CP) $(BONUS) ./
+
+all : $(NAME) $(BONUS)
 
 clean :
 	make -C $(LIB_DIR) clean
