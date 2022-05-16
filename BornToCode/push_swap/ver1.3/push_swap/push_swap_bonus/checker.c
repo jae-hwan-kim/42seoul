@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 18:53:26 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/13 18:53:27 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/05/17 00:35:58 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	end_of_line(t_deque *deque_a, int ac)
 	}
 }
 
-void	execute_operation(t_deque *deque_a, t_deque *deque_b, char *line)
+int	execute_operation(t_deque *deque_a, t_deque *deque_b, char *line)
 {
 	if (ft_same_strcmp("sa\n", line))
 		ft_swap_a(deque_a);
@@ -67,10 +67,8 @@ void	execute_operation(t_deque *deque_a, t_deque *deque_b, char *line)
 	else if (ft_same_strcmp("rrr\n", line))
 		ft_reverse_rotate_ab(deque_a, deque_b);
 	else
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
+		return (1);
+	return (0);
 }
 
 void	check_stdin(t_deque *deque_a, t_deque *deque_b, int ac)
@@ -83,7 +81,13 @@ void	check_stdin(t_deque *deque_a, t_deque *deque_b, int ac)
 	if (0 == line)
 		end_of_line(deque_a, ac);
 	else
-		execute_operation(deque_a, deque_b, line);
+	{
+		if (execute_operation(deque_a, deque_b, line))
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+	}
 }
 
 int	main(int ac, char **av)
@@ -92,7 +96,7 @@ int	main(int ac, char **av)
 	t_deque	*deque_b;
 	t_node	*node_a;
 	int		*parsing;
-	
+
 	if (ac == 1)
 		return (0);
 	deque_a = 0;
