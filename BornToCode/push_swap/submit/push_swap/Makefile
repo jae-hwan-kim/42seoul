@@ -34,7 +34,7 @@ $(NAME) :$(LIB) $(OBJ)
 	$(CC) $(CFLAGS) -L$(LIB_DIR) -l$(LIB_NAME) $(OBJ) -o $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(LIB) :
 	make -C $(LIB_DIR) all
