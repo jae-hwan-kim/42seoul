@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	a_to_b_util(t_deque *deque_a, t_deque *deque_b, int *num, int chunk)
+void	a_to_b_util(t_deque *deque_a, t_deque *deque_b, int *num, int scale)
 {
 	int	top;
 
@@ -22,13 +22,13 @@ void	a_to_b_util(t_deque *deque_a, t_deque *deque_b, int *num, int chunk)
 		ft_push_b(deque_a, deque_b);
 		(*num)++;
 	}
-	else if (*num < top && top <= *num + chunk)
+	else if (*num < top && top <= *num + scale)
 	{
 		ft_push_b(deque_a, deque_b);
 		ft_rotate_b(deque_b);
 		(*num)++;
 	}
-	else if (*num + chunk < top)
+	else if (*num + scale < top)
 		ft_rotate_a(deque_a);
 }
 
@@ -36,11 +36,11 @@ void	a_to_b(t_deque *deque_a, t_deque *deque_b)
 {
 	int	size;
 	int	num;
-	int	chunk;
+	int	scale;
 
 	size = deque_a -> size;
 	num = 0;
-	chunk = 23;
+	scale = 23;
 	while (num < size)
-		a_to_b_util(deque_a, deque_b, &num, chunk);
+		a_to_b_util(deque_a, deque_b, &num, scale);
 }

@@ -7,7 +7,6 @@ LIB_NAME=ftprintf
 LIB_DIR= ./ft_printf/
 LIB=$(LIB_DIR)lib$(LIB_NAME).a
 LIBFT=libftprintf.a
-INCLUDE=-I ./Libft -I ./ft_printf
 RM=rm -f
 CP=cp
 SRC= main.c \
@@ -53,12 +52,5 @@ fclean : clean
 	$(RM) $(LIBFT)
 
 re : fclean all
-
-leaks : $(LIB)
-	$(CC) $(CFLAGS) $(INCLUDE) -L$(LIB_DIR) -l$(LIB_NAME) $(SRC) -g
-
-clean_leaks :
-	$(RM) a.out
-	rm -rf a.out.dSYM
 
 .PHONY : all clean fclean re
