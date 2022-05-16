@@ -44,18 +44,19 @@ $(LIB) :
 
 $(BONUS) :
 	make -C $(BONUS_DIR) all
-	$(CP) $(BONUS) ./
 
 all : $(NAME) $(BONUS)
 
 clean :
 	make -C $(LIB_DIR) clean
+	make -C $(BONUS_DIR) clean
 	$(RM) $(OBJ)
 
 fclean : clean
 	make -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
+	$(RM) $(BONUS)
 
 re : fclean all
 

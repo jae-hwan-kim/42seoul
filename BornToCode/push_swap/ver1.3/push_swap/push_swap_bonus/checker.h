@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 08:30:43 by jaekim            #+#    #+#             */
-/*   Updated: 2021/12/31 08:33:44 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/05/17 00:32:42 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
