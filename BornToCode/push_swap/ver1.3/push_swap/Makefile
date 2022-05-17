@@ -54,9 +54,9 @@ clean :
 
 fclean : clean
 	make -C $(LIB_DIR) fclean
+	make -C $(BONUS_DIR) fclean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
-	$(RM) $(BONUS)
 
 re : fclean all
 

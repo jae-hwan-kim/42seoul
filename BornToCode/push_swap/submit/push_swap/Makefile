@@ -7,6 +7,8 @@ LIB_NAME=ftprintf
 LIB_DIR= ./ft_printf/
 LIB=$(LIB_DIR)lib$(LIB_NAME).a
 LIBFT=libftprintf.a
+BONUS_DIR= ./push_swap_bonus/
+BONUS=checker
 RM=rm -f
 CP=cp
 SRC= main.c \
@@ -34,20 +36,25 @@ $(NAME) :$(LIB) $(OBJ)
 	$(CC) $(CFLAGS) -L$(LIB_DIR) -l$(LIB_NAME) $(OBJ) -o $(NAME)
 
 %.o : %.c
-	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIB) :
 	make -C $(LIB_DIR) all
 	$(CP) $(LIB) ./
 
-all : $(NAME)
+$(BONUS) :
+	make -C $(BONUS_DIR) all
+
+all : $(NAME) $(BONUS)
 
 clean :
 	make -C $(LIB_DIR) clean
+	make -C $(BONUS_DIR) clean
 	$(RM) $(OBJ)
 
 fclean : clean
 	make -C $(LIB_DIR) fclean
+	make -C $(BONUS_DIR) fclean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
 
