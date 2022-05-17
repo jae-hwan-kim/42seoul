@@ -84,7 +84,7 @@ void	check_stdin(t_deque *deque_a, t_deque *deque_b, int ac)
 	{
 		if (execute_operation(deque_a, deque_b, line))
 		{
-			ft_printf("Error\n");
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 	}

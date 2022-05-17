@@ -93,7 +93,7 @@ void	create_result(char **result, int *index, int *j, int *position)
 		}
 		free(result);
 		result = 0;
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 }

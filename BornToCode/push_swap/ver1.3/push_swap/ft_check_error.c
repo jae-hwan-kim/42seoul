@@ -110,7 +110,7 @@ void	check_error(int ac, char **av)
 	if (check_null(av) || check_spaces(av)
 		|| check_digit(av) || check_sign(av))
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 	return ;

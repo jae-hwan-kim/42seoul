@@ -16,6 +16,8 @@ void	ft_swap_a(t_deque *deque_a)
 {	
 	t_node	*curr;
 
+	if (0 == deque_a -> size)
+		return ;
 	curr = deque_a -> head;
 	curr -> next -> prev = 0;
 	curr -> prev = curr -> next;
@@ -29,6 +31,8 @@ void	ft_swap_b(t_deque *deque_b)
 {	
 	t_node	*curr;
 
+	if (0 == deque_b -> size)
+		return ;
 	curr = deque_b -> head;
 	curr -> next -> prev = 0;
 	curr -> prev = curr -> next;
