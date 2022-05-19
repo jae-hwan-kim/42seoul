@@ -28,9 +28,9 @@ int	ft_same_strcmp(char *s1, char *s2)
 	return (1);
 }
 
-void	end_of_line(t_deque *deque_a)
+void	end_of_line(t_deque *deque_a, int ac)
 {
-	if (check_sorting(deque_a))
+	if (check_sorting(deque_a) || ac == 2)
 	{
 		ft_printf("OK\n");
 		exit(0);
@@ -71,7 +71,7 @@ int	execute_operation(t_deque *deque_a, t_deque *deque_b, char *line)
 	return (0);
 }
 
-void	check_stdin(t_deque *deque_a, t_deque *deque_b)
+void	check_stdin(t_deque *deque_a, t_deque *deque_b, int ac)
 {
 	char	*line;
 	int		fd;
@@ -79,7 +79,7 @@ void	check_stdin(t_deque *deque_a, t_deque *deque_b)
 	fd = 0;
 	line = get_next_line(fd);
 	if (0 == line)
-		end_of_line(deque_a);
+		end_of_line(deque_a, ac);
 	else
 	{
 		if (execute_operation(deque_a, deque_b, line))
@@ -106,6 +106,6 @@ int	main(int ac, char **av)
 	ft_deq_init(&deque_a, &deque_b);
 	ft_make_list_index(parsing, deque_a, node_a);
 	while (1)
-		check_stdin(deque_a, deque_b);
+		check_stdin(deque_a, deque_b, ac);
 	return (0);
 }

@@ -38,6 +38,8 @@ int		check_sorting(t_deque *deque_a);
 void	sort_small_size(t_deque *deque_a, t_deque *deque_b, int size);
 
 int		ft_printf(const char *argu, ...);
+char	*get_next_line(int fd);
+void	ft_putstr_fd(char *s, int fd);
 int		ft_atoi(const char *str);
 char	**ft_split(char **av);
 int		count_size(char **av);

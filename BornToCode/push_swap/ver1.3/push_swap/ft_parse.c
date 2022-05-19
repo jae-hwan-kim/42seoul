@@ -27,7 +27,7 @@ void	parameter_compare(int *result)
 		{
 			if (result[i] == result[j])
 			{
-				ft_printf("Error\n");
+				ft_putstr_fd("Error\n", 2);
 				exit (1);
 			}
 			j++;

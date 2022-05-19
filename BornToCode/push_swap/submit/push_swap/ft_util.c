@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s || fd < 0)
+		return ;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
@@ -45,7 +59,7 @@ void	int_range(long long number)
 {
 	if (-2147483648 > number || 2147483647 < number)
 	{
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 }
