@@ -1,0 +1,26 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/push_swap/ver1.3/push_swap'
+make -C ./ft_printf/ all
+cp ./ft_printf/libftprintf.a ./
+gcc -Wall -Wextra -Werror -c main.c -o main.o
+gcc -Wall -Wextra -Werror -c push_swap.c -o push_swap.o
+gcc -Wall -Wextra -Werror -c ft_sort_small_size.c -o ft_sort_small_size.o
+gcc -Wall -Wextra -Werror -c ft_a_to_b.c -o ft_a_to_b.o
+gcc -Wall -Wextra -Werror -c ft_b_to_a.c -o ft_b_to_a.o
+gcc -Wall -Wextra -Werror -c ft_check_error.c -o ft_check_error.o
+gcc -Wall -Wextra -Werror -c ft_make_list_index.c -o ft_make_list_index.o
+gcc -Wall -Wextra -Werror -c ft_deque_util.c -o ft_deque_util.o
+gcc -Wall -Wextra -Werror -c ft_list_util.c -o ft_list_util.o
+gcc -Wall -Wextra -Werror -c ft_list_del_util.c -o ft_list_del_util.o
+gcc -Wall -Wextra -Werror -c ft_util.c -o ft_util.o
+gcc -Wall -Wextra -Werror -c ft_split.c -o ft_split.o
+gcc -Wall -Wextra -Werror -c ft_split_util.c -o ft_split_util.o
+gcc -Wall -Wextra -Werror -c ft_parse.c -o ft_parse.o
+gcc -Wall -Wextra -Werror -c ft_push.c -o ft_push.o
+gcc -Wall -Wextra -Werror -c ft_swap.c -o ft_swap.o
+gcc -Wall -Wextra -Werror -c ft_rotate.c -o ft_rotate.o
+ 
+gcc -Wall -Wextra -Werror -c ft_reverse_rotate.c -o ft_reverse_rotate.o
+gcc -Wall -Wextra -Werror -L./ft_printf/ -lftprintf main.o push_swap.o ft_sort_small_size.o ft_a_to_b.o ft_b_to_a.o ft_check_error.o ft_make_list_index.o ft_deque_util.o ft_list_util.o ft_list_del_util.o ft_util.o ft_split.o ft_split_util.o ft_parse.o ft_push.o ft_swap.o ft_rotate.o ft_reverse_rotate.o -o push_swap
+make: Leaving directory `/Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/push_swap/ver1.3/push_swap'
+ 
