@@ -10,8 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri May 13 17:05:36 2022
- 
+# Make data base, printed on Thu May 19 10:38:46 2022
 
 # Variables
 
@@ -46,11 +45,13 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-af766a8e-9fa0-482b-aab0-beee3b15a110.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-ac7b438c-3bae-4513-8ecd-0627c9a925b8.sock
 # environment
 VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
+# environment
+LaunchInstanceID = 78A7E54B-8896-4115-B116-AACFD234CB02
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -58,7 +59,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.SXtk5omEPt/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.fbiKhLOQeH/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -88,7 +89,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-PLATFORMIO_PATH = /Users/kimjaehwan/.platformio/penv/bin:/Users/kimjaehwan/.platformio/penv:/Users/kimjaehwan/.platformio/python3/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+PLATFORMIO_PATH = /Users/kimjaehwan/.platformio/python3/bin:/Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # default
 MAKE = $(MAKE_COMMAND)
 # default
@@ -104,7 +105,7 @@ JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home
 # default
 MAKE_VERSION := 3.81
 # environment
-USER = kimjaehwan
+USER = jaekim
 # makefile
 .DEFAULT_GOAL := 
 # automatic
@@ -125,6 +126,8 @@ MAKEFLAGS = Rrqp
 MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = jaekim@student.42seoul.kr
 # environment
 XPC_SERVICE_NAME = application.com.microsoft.VSCode.10102871.10102877
 # environment
@@ -147,10 +150,11 @@ MAKEFILES :=
 PLATFORMIO_CALLER = vscode
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
- 
 SUFFIXES := 
 # default
 .INCLUDE_DIRS = /usr/local/include
@@ -159,9 +163,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 96184
+VSCODE_PID = 359
 # variable set hash-table stats:
-# Load=72/1024=7%, Rehash=0, Collisions=3/93=3%
+# Load=75/1024=7%, Rehash=0, Collisions=3/96=3%
 
 # Pattern-specific Variable Values
 
@@ -169,9 +173,9 @@ VSCODE_PID = 96184
 
 # Directories
 
-# . (device 16777233, inode 9326278): 8 files, no impossibilities.
+# . (device 16777232, inode 9326278): 9 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -243,6 +247,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri May 13 17:05:36 2022
+# Finished Make data base on Thu May 19 10:38:46 2022
 
  
