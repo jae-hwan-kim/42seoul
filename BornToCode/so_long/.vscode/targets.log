@@ -7,21 +7,22 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
  
-make: *** No rule to make target `main.o', needed by `so_long'.  Stop.
+make: *** No rule to make target `main.o', needed by `so_long'
+.  Stop.
 
 
-# Make data base, printed on Fri May 20 19:29:46 2022
-
+# Make data base, printed on Sun May 22 15:35:01 2022
  
+
 # Variables
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 13)
+# makefile (from `Makefile', line 14)
 OBJ = $(SRC:.c=.o)
-# makefile (from `Makefile', line 11)
+# makefile (from `Makefile', line 12)
 SRC = main.c
 # environment
 VSCODE_LOG_NATIVE = false
@@ -37,18 +38,20 @@ PLATFORMIO_IDE = 2.4.3
 CURDIR := /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long
 # makefile
 SHELL = /bin/sh
-# makefile (from `Makefile', line 9)
+# makefile (from `Makefile', line 10)
 RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"738ac08552cca045871a73764b8c446f.ko","_translationsConfigFile":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/tcf.json","_cacheRoot":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko","_resolvedLanguagePackCoreLocation":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/da15b6fd3ef856477bf6f4fb29ba1b7af717770d","_corruptedFile":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 4)
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from `Makefile', line 10)
+# makefile (from `Makefile', line 11)
 CP = cp
+# makefile (from `Makefile', line 5)
+DEBUG = -g3 -fsanitize=address
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
@@ -56,26 +59,26 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-047d757f-f34c-4c14-a6a9-1b81c927c2f2.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-908d65fd-96e8-4a44-8471-c9663d8e3c9a.sock
 # environment
 VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
 # environment
-LaunchInstanceID = C8B38ADB-78B6-4FBB-8D8A-EEC5EDEB9884
+LaunchInstanceID = BD77BE7A-672A-4301-96AE-929AC634820B
 # environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
-# makefile (from `Makefile', line 8)
+# makefile (from `Makefile', line 9)
 MLX_LIB = mlx
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.UQc4OgRqyT/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.MWBsgrBTif/Listeners
 # automatic
 %F = $(notdir $%)
-# makefile (from `Makefile', line 5)
+# makefile (from `Makefile', line 6)
 OPENGL = -framework OpenGL
 # environment
 VSCODE_PIPE_LOGGING = true
@@ -108,7 +111,6 @@ PLATFORMIO_PATH = /Users/kimjaehwan/.platformio/penv/bin:/Users/kimjaehwan/.plat
 # default
 MAKE = $(MAKE_COMMAND)
 # default
- 
 MAKECMDGOALS := all
 # environment
 PATH = /Library/Java/JavaVirtualMachines/jdk1.8.0_321.jdk/Contents/Home/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -133,6 +135,7 @@ NAME = so_long
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
 # default
+ 
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/
@@ -168,14 +171,14 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 PLATFORMIO_CALLER = vscode
-# makefile (from `Makefile', line 7)
+# makefile (from `Makefile', line 8)
 MLX_DIR = ./mlx
 # environment
 LC_ALL = C
-# makefile (from `Makefile', line 6)
+# makefile (from `Makefile', line 7)
 APPKIT = -framework AppKit
 # environment
-SECURITYSESSIONID = 186a7
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -187,9 +190,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 394
+VSCODE_PID = 362
 # variable set hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=5/114=4%
+# Load=87/1024=8%, Rehash=0, Collisions=5/115=4%
 
 # Pattern-specific Variable Values
 
@@ -197,7 +200,7 @@ VSCODE_PID = 394
 
 # Directories
 
-# . (device 16777233, inode 10271673): 10 files, no impossibilities.
+# . (device 16777230, inode 10271673): 10 files, no impossibilities.
 
 # 10 files, no impossibilities in 1 directories.
 
@@ -214,7 +217,6 @@ all: so_long
 #  File does not exist.
 #  File has not been updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .PHONY: all clean fclean re
@@ -231,7 +233,7 @@ all: so_long
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-20 19:21:42
+#  Last modified 2022-05-22 15:34:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -242,7 +244,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 24):
+#  commands to execute (from `Makefile', line 25):
 	$(RM) $(NAME)
 	
 
@@ -263,7 +265,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 21):
+#  commands to execute (from `Makefile', line 22):
 	$(RM) $(OBJ)
 	
 
@@ -281,7 +283,7 @@ so_long: main.o
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 16):
+#  commands to execute (from `Makefile', line 17):
 	$(CC) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
 	
 
@@ -298,6 +300,6 @@ so_long: main.o
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri May 20 19:29:46 2022
+# Finished Make data base on Sun May 22 15:35:01 2022
 
  

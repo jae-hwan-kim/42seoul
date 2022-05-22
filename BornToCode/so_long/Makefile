@@ -1,7 +1,8 @@
 NAME=so_long
 
 CC=cc
-CFLAGS= -Wall -Wextra -Werror -g3
+CFLAGS= -Wall -Wextra -Werror
+DEBUG = -g3 -fsanitize=address
 OPENGL= -framework OpenGL
 APPKIT= -framework AppKit
 MLX_DIR= ./mlx
