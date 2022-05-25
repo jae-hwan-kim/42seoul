@@ -1,6 +1,6 @@
 NAME=so_long
 
-CC=cc
+CC=gcc
 CFLAGS= -Wall -Wextra -Werror
 DEBUG = -g3 -fsanitize=address
 OPENGL= -framework OpenGL
@@ -18,7 +18,7 @@ SRC= main.c \
 OBJ=$(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	$(CC) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
+	$(CC) $(DEBUG) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
 
 all : $(NAME)
 
