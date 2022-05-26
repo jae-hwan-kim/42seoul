@@ -1,108 +1,108 @@
 #include "so_long.h"
-
-typedef struct s_list
+// 0 1 C E P X 반환하는 함수 만들자
+typedef struct s_draw
 {
-	char			content;
-	struct s_list	*next;
-}					t_list;
+	t_game	*game;
+	t_img	*image;
+	t_map	*map;
+}	t_draw;
 
-t_list	*ft_lstnew(char content)
+typedef struct s_draw_position
 {
-	t_list	*n_list;
+	int	x;
+	int	y;
+}	t_draw_position;
 
-	printf("print content : %c\n", content);
-	n_list = (t_list *)malloc(sizeof(t_list));
-	if (n_list == 0)
-		return (0);
-	n_list -> content = content;
-	n_list -> next = 0;
-	return (n_list);
+void	draw_image(t_draw *put_img, char *type, int x, int y)
+{
+	void	*id;
+	void	*so_long;
+	void	*window;
+	int		width;
+	int		height;
+
+	width = put_img->image->width;
+	height = put_img->image->height;
+	id = put_img->image->id;
+	so_long = put_img->game->start;
+	window = put_img->game->window;
+	id = mlx_xpm_file_to_image(so_long, type, &width, &height);
+	mlx_put_image_to_window(so_long, window, id, TILE * x, TILE * y);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	draw_position(t_draw *put_img, char *map_arr, int map_size, int	index)
 {
-	t_list	*curr;
-
-	if (new == 0)
-		return ;
-	if (*lst == 0)
+	t_draw_position	position;
+	
+	position.y = 0;
+	while (index < map_size)
 	{
-		*lst = new;
-		return ;
-	}
-	curr = *lst;
-	while (curr->next)
-		curr = curr->next;
-	curr->next = new;
-	new->next = 0;
-}
-
-void	make_temp_list(t_list *temp_list, char *temp)
-{
-	int	i;
-
-	i = 0;
-	if (0 == temp)
-		return ;
-	while (0 != temp[i] && '\n' != temp[i])
-	{
-		printf("str[%d]: %c\n", i, temp[i]);
-		ft_lstadd_back(&temp_list, ft_lstnew(temp[i]));
-		i++;
-	}
-}
-
-void	init_map(char **av)
-{
-	int		fd;
-	size_t	length;
-	int		line_number;
-	char	*temp;
-	t_list	*temp_list;
-	int	i;
-
-	fd = open(av[1], O_RDONLY);
-	temp = get_next_line(fd);
-	length = ft_strlen(temp);
-	temp_list = 0;
-	line_number = 0;
-	while (0 != temp)
-	{
-		i = 0;
-		printf("before str: %s\n", temp); // 이상없음 부분
-		while ('\0' != temp[i])
+		position.x = 0;
+		while (position.x < put_img->map->row && 0 != map_arr[index])
 		{
-			// printf("%d", temp[i]);
-			ft_lstadd_back(&temp_list, ft_lstnew(temp[i]));
-			i++;
+			if ('0' == map_arr[index])
+				draw_image(put_img, EMPTY, position.x, position.y);
+			else if ('1' == map_arr[index])
+				draw_image(put_img, WALL, position.x, position.y);
+			else if ('C' == map_arr[index])
+				draw_image(put_img, ITEM, position.x, position.y);
+			else if ('E' == map_arr[index])
+				draw_image(put_img, EXIT, position.x, position.y);
+			else if ('P' == map_arr[index])
+				draw_image(put_img, PLAYER, position.x, position.y);
+			else if ('X' == map_arr[index])
+				draw_image(put_img, ENEMY, position.x, position.y);
+			index++;
+			position.x++;
 		}
-		// 임시코드
-		// t_list *merong = temp_list;
-		// while (merong)
-		// {
-		// 	printf("%c", merong->content);
-		// 	merong = merong->next;
-		// }
-		printf("\n\n");
-		printf("str: %s\n", temp); // 이상있는 부분
-		temp = get_next_line(fd);
-		// printf("str: %s\n", temp); // 이상없음
-		line_number++;
+		position.y++;
 	}
-	close(fd);
+}
+
+void	draw(t_draw *put_img)
+{
+	char	*map_arr;
+	int		map_size;
+	int		index;
+
+	index = 0;
+	map_arr = put_img->map->map;
+	map_size = put_img->map->size;
+	draw_position(put_img, map_arr, map_size, index);
+}
+
+void	init_put_img(t_draw *put_img, t_img *image, t_game *game, t_map *map)
+{
+	put_img->game = game;
+	put_img->image = image;
+	put_img->map = map;
+}
+
+void	get_imageinfo(t_img *image, t_game *so_long, t_map *map)
+{
+	t_draw	*put_img;
+
+	image->height = TILE;
+	image->width = TILE;
+	image->id = 0;
+	put_img = malloc(sizeof(t_game *) + sizeof(t_img *) + sizeof(t_map *));
+	if (0 == put_img)
+		exit(0);
+	init_put_img(put_img, image, so_long, map);
+	draw(put_img);
 }
 
 int		main(int ac, char **av)
 {
-	t_game	so_long;
+	t_game		so_long;
 	t_position	position;
+	t_map		map;
+	t_img		image;
 	(void) ac;
 
 	init_game(&so_long);
-	init_position(&position);
-	so_long.window = mlx_new_window(so_long.start, 500, 500, "so_long");
-	init_map(av);
-	mlx_hook(so_long.window, X_EVENT_KEY_PRESS, 0, &press_key, &position);
+	init_component(&map, &so_long, &image, av);
+	init_movecount(&position, &so_long);
 	mlx_loop(so_long.start);
 	return (0);
 }

@@ -1,8 +1,8 @@
 NAME=so_long
 
-CC=gcc
+CC=cc
 CFLAGS= -Wall -Wextra -Werror
-DEBUG = -g3 -fsanitize=address
+DEBUG = -g -fsanitize=address
 OPENGL= -framework OpenGL
 APPKIT= -framework AppKit
 MLX_DIR= ./mlx
@@ -12,13 +12,14 @@ CP=cp
 SRC= main.c \
 	 init.c \
 	 key.c \
+	 get.c \
 	 get_next_line.c \
 	 get_next_line_utils.c 
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	$(CC) $(DEBUG) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) $(DEBUG) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
 
 all : $(NAME)
 
