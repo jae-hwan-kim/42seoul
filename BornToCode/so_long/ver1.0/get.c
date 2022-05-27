@@ -1,9 +1,35 @@
 #include "so_long.h"
 
+void	get_imageinfo(t_img *image, t_game *so_long, t_map *map)
+{
+	t_draw	*put_img;
+
+	image->height = TILE;
+	image->width = TILE;
+	image->id = 0;
+	put_img = malloc(sizeof(t_game *) + sizeof(t_img *) + sizeof(t_map *));
+	if (0 == put_img)
+		exit(0);
+	init_put_img(put_img, image, so_long, map);
+	draw(put_img);
+}
+
 void	get_windowinfo(t_game *so_long, t_map *map)
 {
 	so_long->width = map->row * TILE;
 	so_long->height = map->columns * TILE;
+}
+
+int	row_length(char *gnl)
+{
+	int	 i;
+
+	i = 0;
+	if (!gnl)
+		return (0);
+	while (gnl[i] && '\n' != gnl[i])
+		i++;
+	return (i);
 }
 
 void	malloc_map(t_map *map, char **av)
@@ -12,17 +38,18 @@ void	malloc_map(t_map *map, char **av)
 
 	map->fd = open(av[1], O_RDONLY);
 	temp = get_next_line(map->fd);
-	map->row = ft_strlen(temp);
+	map->row = row_length(temp);
 	map->columns = 0;
 	while (0 != temp)
 	{
+		if (map->row != row_length(temp))
+			write_error(ERROR);
 		temp = get_next_line(map->fd);
 		map->columns++;
 	}
-	map->size = map->columns * (map->row - 1);
-	map->map = malloc(sizeof(char *) * (map->size + 1));
+	map->size = map->columns * map->row;
+	map->map = malloc(sizeof(char) * (map->size + 1));
 	map->map[map->size] = 0;
-	map->row -= 1;
 	close(map->fd);
 }
 
@@ -46,6 +73,5 @@ void	get_mapinfo(t_map *map, char **av)
 		}
 		temp = get_next_line(map->fd);
 	}
-	printf("%s\n", map->map);
 	close(map->fd);
 }

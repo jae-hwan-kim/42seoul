@@ -1,19 +1,19 @@
 #include "so_long.h"
 
-int	press_key(int keycode, t_position *position)
+int	press_key(int keycode, t_count *count)
 {
 	if (keycode == KEY_W)
-		position -> y++;
+		count -> y++;
 	else if (keycode == KEY_S)
-		position -> y++;
+		count -> y++;
 	else if (keycode == KEY_A)
-		position -> x++;
+		count -> x++;
 	else if (keycode == KEY_D)
-		position -> x++;
+		count -> x++;
 	else if (keycode == KEY_ESC)
 		exit(0);
 	else
 		return (0);
-	printf("( x, y ) : ( %d, %d )\n", position -> x, position -> y);
+	printf("( x, y ) : ( %d, %d )\n", count -> x, count -> y);
 	return (0);
 }

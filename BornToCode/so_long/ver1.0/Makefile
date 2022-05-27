@@ -13,13 +13,15 @@ SRC= main.c \
 	 init.c \
 	 key.c \
 	 get.c \
+	 draw.c \
+	 error.c \
 	 get_next_line.c \
 	 get_next_line_utils.c 
 
 OBJ=$(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(DEBUG) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
 
 all : $(NAME)
 
