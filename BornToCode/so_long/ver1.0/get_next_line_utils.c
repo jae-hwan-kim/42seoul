@@ -78,6 +78,7 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 
+	// memory leak 유발
 	if (!s1)
 	{
 		s1 = malloc(sizeof(char) * 1);
@@ -85,6 +86,7 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (0);
 		s1[0] = 0;
 	}
+	// 여기까지
 	if (!s1 || !s2)
 		return (0);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
@@ -92,6 +94,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (0);
 	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
 	ft_strlcat(str, s2, ft_strlen(str) + ft_strlen(s2) + 1);
-	free (s1);
+	// 수정 함
+	// free (s1);
 	return (str);
 }

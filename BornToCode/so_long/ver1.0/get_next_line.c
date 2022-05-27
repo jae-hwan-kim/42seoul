@@ -70,6 +70,7 @@ char	*ft_read(int fd, char *backup)
 {
 	char	*buf;
 	int		read_bytes;
+	char	*ret;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -84,7 +85,10 @@ char	*ft_read(int fd, char *backup)
 			return (0);
 		}
 		buf[read_bytes] = '\0';
-		backup = ft_strjoin(backup, buf);
+		// backup 을 해제하지 않았는데 backup 의 값을 덮어씀.
+		ret = ft_strjoin(backup, buf);
+		free(backup);
+		backup = ret;
 	}
 	free (buf);
 	return (backup);
@@ -105,6 +109,5 @@ char	*get_next_line(int fd)
 	}
 	line = ft_check_get_line(backup);
 	backup = ft_save_backup(backup);
-	free(line);
 	return (line);
 }
