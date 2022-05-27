@@ -8,7 +8,7 @@
 # include <fcntl.h>
 
 # define GAMENAME "so_long"
-# define TILE 50
+# define TILE 60
 # define KEY_W 13
 # define KEY_A 0
 # define KEY_S 1
