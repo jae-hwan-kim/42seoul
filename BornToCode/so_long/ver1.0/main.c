@@ -12,6 +12,7 @@ int		main(int ac, char **av)
 	init_game(&so_long);
 	init_component(&map, &so_long, &image, av);
 	init_movecount(&position, &so_long);
+	event_function();
 	mlx_loop(so_long.start);
 	return (0);
 }

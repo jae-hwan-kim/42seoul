@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long/ver1.0'
 cc -Wall -Wextra -Werror   -c -o main.o main.c
 cc -Wall -Wextra -Werror   -c -o init.o init.c
