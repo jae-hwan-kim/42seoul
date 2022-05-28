@@ -20,12 +20,13 @@ void	init_component(t_map *map, t_game *so_long, t_img *image, char **av)
 	get_imageinfo(image, so_long, map);
 }
 
-void	init_movecount(t_count *position, t_game *game)
-{
-	position -> x = 0;
-	position -> y = 0;
-	mlx_hook(game->window, X_EVENT_KEY_PRESS, 0, &press_key, &position);
-}
+// void	init_movecount(t_count *count, t_game *game)
+// {
+// 	count -> x = 0;
+// 	count -> y = 0;
+// 	//음...	mlx_hook(game->window, X_EVENT_KEY_PRESS, 0, &press_key, &count);
+// 	mlx_hook(game->window, X_EVENT_KEY_PRESS, 0, &press_key, count);
+// }
 
 void	init_window(t_game *so_long)
 {
