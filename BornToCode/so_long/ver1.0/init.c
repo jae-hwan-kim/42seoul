@@ -7,6 +7,17 @@ void	init_put_img(t_draw *put_img, t_img *image, t_game *game, t_map *map)
 	put_img->map = map;
 }
 
+void	init_player(t_player *player, t_game *game, t_map *map, t_img *image)
+{
+	player->game = game;
+	player->map = map;
+	player->image = image;
+	player->position = 0;
+	player->x = 0;
+	player->y = 0;
+	player->move_count = 0;
+}
+
 void	init_component(t_map *map, t_game *so_long, t_img *image, char **av)
 {
 	(void)	image;
@@ -19,14 +30,6 @@ void	init_component(t_map *map, t_game *so_long, t_img *image, char **av)
 	init_window(so_long);
 	get_imageinfo(image, so_long, map);
 }
-
-// void	init_movecount(t_count *count, t_game *game)
-// {
-// 	count -> x = 0;
-// 	count -> y = 0;
-// 	//음...	mlx_hook(game->window, X_EVENT_KEY_PRESS, 0, &press_key, &count);
-// 	mlx_hook(game->window, X_EVENT_KEY_PRESS, 0, &press_key, count);
-// }
 
 void	init_window(t_game *so_long)
 {
