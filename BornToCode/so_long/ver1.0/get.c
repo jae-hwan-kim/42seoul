@@ -9,7 +9,7 @@ void	get_imageinfo(t_img *image, t_game *so_long, t_map *map)
 	image->id = 0;
 	put_img = malloc(sizeof(t_game *) + sizeof(t_img *) + sizeof(t_map *));
 	if (0 == put_img)
-		exit(0);
+		write_error(ERROR);
 	init_put_img(put_img, image, so_long, map);
 	draw(put_img);
 }

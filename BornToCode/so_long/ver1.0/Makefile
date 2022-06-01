@@ -15,6 +15,7 @@ SRC= main.c \
 	 get.c \
 	 draw.c \
 	 error.c \
+	 close.c \
 	 get_next_line.c \
 	 get_next_line_utils.c 
 

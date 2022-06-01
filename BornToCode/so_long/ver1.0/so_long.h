@@ -14,6 +14,7 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_ESC 53
+# define RED_CROSS 17
 
 # define EMPTY "image/0_empty.xpm"
 # define WALL "image/1_wall.xpm"
@@ -21,7 +22,7 @@
 # define EXIT "image/3_exit.xpm"
 # define PLAYER "image/4_player.xpm"
 # define ENEMY "image/5_enemy.xpm"
-# define ERROR "error"
+# define ERROR "Error"
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_RELEASE 3
 # define BUFFER_SIZE 1024
@@ -33,12 +34,6 @@ typedef struct s_game
 	int		width;
 	int		height;
 }	t_game;
-
-typedef struct s_count
-{
-	int	x;
-	int	y;
-}	t_count;
 
 typedef struct s_map
 {
@@ -69,8 +64,19 @@ typedef struct s_draw_position
 	int	y;
 }	t_draw_position;
 
+typedef	struct s_player
+{
+	t_game	*game;
+	t_map	*map;
+	t_img	*image;
+	int		position;
+	int		x;
+	int		y;
+	int		move_count;
+}	t_player;
+
 void	init_component(t_map *map, t_game *so_long, t_img *image, char **av);
-void	init_movecount(t_count *position, t_game *game);
+void	init_player(t_player *player, t_game *game, t_map *map, t_img *image);
 void	init_game(t_game *game);
 void	init_window(t_game *so_long);
 void	init_put_img(t_draw *put_img, t_img *image, t_game *game, t_map *map);
@@ -87,14 +93,15 @@ void	check_ac(int ac);
 void	check_error(t_map *map);
 int		check_other_character(t_map *map);
 int		check_exist(t_map *map);
-int		check_wall(t_map *map);
+int		check_closed_by_wall(t_map *map);
 
-int		press_key(int keycode, t_count *count);
+int		press_key(int keycode, t_player *player);
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s1, int c);
 size_t	ft_strlen(const char *s1);
 void	malloc_map(t_map *map, char **av);
 void	check_error(t_map *map);
+int		window_close(void);
 
 #endif
