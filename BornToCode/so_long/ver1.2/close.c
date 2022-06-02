@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:13:55 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/30 18:13:56 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/02 11:12:49 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ void	write_error(char *error)
 
 int	window_close(void)
 {
-	system("leaks so_long");
 	exit(0);
 }

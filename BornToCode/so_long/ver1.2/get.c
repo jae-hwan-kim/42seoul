@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:14:41 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/30 18:14:42 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/02 11:07:22 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	get_windowinfo(t_game *so_long, t_map *map)
 
 int	row_length(char *gnl)
 {
-	int	 i;
+	int	i;
 
 	i = 0;
 	if (!gnl)
