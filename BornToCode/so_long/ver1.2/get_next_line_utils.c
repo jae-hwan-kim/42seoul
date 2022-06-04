@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 08:30:57 by jaekim            #+#    #+#             */
-/*   Updated: 2021/12/31 13:03:38 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/02 11:06:18 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s1)
 {
-	size_t	 i;
+	size_t	i;
 
 	i = 0;
 	if (!s1)
