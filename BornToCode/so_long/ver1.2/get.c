@@ -87,6 +87,8 @@ void	malloc_map(t_map *map, char **av)
 	}
 	map->size = map->columns * map->row;
 	map->map = malloc(sizeof(char) * (map->size + 1));
+	if (0 == map->map)
+		write_error(ERROR);
 	map->map[map->size] = 0;
 	close(map->fd);
 }

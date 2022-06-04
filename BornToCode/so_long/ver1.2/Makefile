@@ -25,7 +25,7 @@ SRC= main.c \
 OBJ=$(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
-	arch -x86_64 $(CC) $(CFLAGS) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -L$(MLX_DIR) -l$(MLX_LIB) $(OPENGL) $(APPKIT) $(OBJ) -o $(NAME)
 
 all : $(NAME)
 

@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `main.o', needed by `so_long'.  Stop.
 
-
-# Make data base, printed on Wed Jun  1 22:22:55 2022
+# Make data base, printed on Sat Jun  4 13:50:41 2022
 
 # Variables
 
@@ -33,7 +30,7 @@ PLATFORMIO_IDE = 2.4.3
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long/ver1.1
+CURDIR := /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long/ver1.2
 # makefile
 SHELL = /bin/sh
 # makefile (from `Makefile', line 10)
@@ -57,13 +54,13 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-2bd76202-3f07-44e8-8f10-5091fec0b48e.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-efa3cf6b-c1da-457c-adef-1ad8ef269d55.sock
 # environment
 VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
 # environment
-LaunchInstanceID = 0E02DB18-0393-4583-89CD-E57386BE631F
+LaunchInstanceID = 3B773CE0-F362-46F2-A9C6-206F620B1FE2
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -73,7 +70,7 @@ MLX_LIB = mlx
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.O9Mhiw4yI4/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.vTfxEkq9Nr/Listeners
 # automatic
 %F = $(notdir $%)
 # makefile (from `Makefile', line 6)
@@ -81,7 +78,7 @@ OPENGL = -framework OpenGL
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long/ver1.1
+PWD = /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/so_long/ver1.2
 # environment
 HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
@@ -187,7 +184,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 380
+VSCODE_PID = 391
 # variable set hash-table stats:
 # Load=87/1024=8%, Rehash=0, Collisions=5/115=4%
 
@@ -197,9 +194,9 @@ VSCODE_PID = 380
 
 # Directories
 
-# . (device 16777232, inode 10720993): 29 files, no impossibilities.
+# . (device 16777233, inode 10778128): 23 files, no impossibilities.
 
-# 29 files, no impossibilities in 1 directories.
+# 23 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -215,6 +212,9 @@ all: so_long
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+ 
+make: *** No rule to make target `main.o', needed by `so_long'.  Stop.
+
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -236,7 +236,7 @@ event_function_util.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-30 23:08:05
+#  Last modified 2022-06-02 01:57:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -300,7 +300,6 @@ clean:
 init.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -325,7 +324,7 @@ draw.o:
 
 so_long: main.o init.o get.o draw.o close.o error_a.o error_b.o event_function.o event_function_util.o event_function_second_util.o get_next_line.o get_next_line_utils.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-06-01 22:22:20
+#  Last modified 2022-06-03 18:00:58
 #  File has not been updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -364,6 +363,6 @@ event_function_second_util.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed Jun  1 22:22:55 2022
+# Finished Make data base on Sat Jun  4 13:50:41 2022
 
  
