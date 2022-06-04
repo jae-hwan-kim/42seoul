@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/31 08:30:33 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/30 18:14:56 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/04 13:50:15 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*line_backup;
-	static char *backup;
+	static char	*backup;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);

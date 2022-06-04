@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 18:14:41 by jaekim            #+#    #+#             */
-/*   Updated: 2022/05/30 18:14:42 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/04 13:49:56 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	malloc_map(t_map *map, char **av)
 	}
 	map->size = map->columns * map->row;
 	map->map = malloc(sizeof(char) * (map->size + 1));
+	if (0 == map->map)
+		write_error(ERROR);
 	map->map[map->size] = 0;
 	close(map->fd);
 }

@@ -94,6 +94,8 @@ void	control_function(t_map *map, t_game *game, t_img *image)
 	t_player	*player;
 
 	player = (t_player *)malloc(sizeof(t_player));
+	if (0 == player)
+		write_error(ERROR);
 	init_player(player, game, map, image);
 	mlx_hook(player->game->window, X_EVENT_KEY_PRESS, 0, &press_key, player);
 	mlx_hook(player->game->window, RED_CROSS, 0, &window_close, 0);
