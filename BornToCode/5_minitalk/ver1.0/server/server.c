@@ -15,11 +15,28 @@ void	handler(int signo, siginfo_t *info, void *context)
 {
     (void) info;
     (void) context;
+    static int  index = 7;
 
     if (signo == SIGUSR1)
-		write(1, "1", 1);
+        write(1, "0", 1);
     else if (signo == SIGUSR2)
-		write(1, "0", 1);
+        write(1, "1", 1);
+    // if (signo == SIGUSR1)
+    // {
+    //     if (write(1, "0", 1))
+    //         kill(info->si_pid, SIGUSR1);
+    // }
+    // else if (signo == SIGUSR2)
+    // {
+    //     if(write(1, "1", 1))
+    //         kill(info->si_pid, SIGUSR2);
+    // }
+    index--;
+    if (0 > index)
+    {
+        index = 7;
+        printf("\n");
+    }
 }
 
 int main(int ac, char **av)
@@ -30,17 +47,11 @@ int main(int ac, char **av)
     generate_signal.sa_sigaction = handler;
     generate_signal.sa_flags = SA_SIGINFO;
     get_pid(av);
-    while (1)
-    {
-        if (sigaction(SIGUSR1, &generate_signal, NULL) != 0)
-        {
-            exit(1);
-        }
-        if (sigaction(SIGUSR2, &generate_signal, NULL) != 0)
-        {
-            exit(1);
-        }
-    }
+    
+    if (sigaction(SIGUSR1, &generate_signal, NULL) != 0)
+        exit(1);
+    if (sigaction(SIGUSR2, &generate_signal, NULL) != 0)
+        exit(1);
     // if (ac < 3)
     // {
     //     printf("Usage : %s PID \n", av[0]);
@@ -53,5 +64,6 @@ int main(int ac, char **av)
     //         kill(atoi(av[1]), SIGUSR2);
     // }
     // printf("No Usage PID \n");
+    while (1);
     return (0);
 }
