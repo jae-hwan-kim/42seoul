@@ -1,3 +1,4 @@
+#ft_printf 라이브러리 추가하는 명령어
 NAME=server
 
 CC=gcc
@@ -10,9 +11,6 @@ OBJ=$(SRC:.c=.o)
 
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-# %.o : %.c
-# 	$(CC) $(CFLAGS) -c $< -o $@
 
 all : $(NAME)
 

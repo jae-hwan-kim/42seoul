@@ -1,14 +1,46 @@
-#include "server.h"
-// 서버 프로그램 : 실행 시 자신의 PID 를 출력하는 서버 프로그램을 만든다.
+#include "../minitalk.h"
+// 클라이언트에서 서버에 메시지를 전송한다.
+// 이때 인자로 서버 pid 와 메시지를 보낸다.
+// ex) ./client [PID] [메시지]
+
+void    get_pid(char **av)
+{
+    pid_t   pid;
+    
+    pid = getpid();
+    printf("Program : %s\nPID [%d]\n", av[0], pid);
+}
+
+void	handler(int signo, siginfo_t *info, void *context)
+{
+    (void) info;
+    (void) context;
+
+    if (signo == SIGUSR1)
+		write(1, "1", 1);
+    else if (signo == SIGUSR2)
+		write(1, "0", 1);
+}
 
 int main(int ac, char **av)
 {
     (void) ac;
-    pid_t   pid;
+    struct sigaction    generate_signal;
 
-    pid = getpid();
-    printf("Program : %s\nPID [%d]\n", av[0], pid);
-    // while (1);
+    generate_signal.sa_sigaction = handler;
+    generate_signal.sa_flags = SA_SIGINFO;
+    get_pid(av);
+    while (1)
+    {
+        if (sigaction(SIGUSR1, &generate_signal, NULL) != 0)
+        {
+            exit(1);
+        }
+        if (sigaction(SIGUSR2, &generate_signal, NULL) != 0)
+        {
+            exit(1);
+        }
+    }
     // if (ac < 3)
     // {
     //     printf("Usage : %s PID \n", av[0]);
