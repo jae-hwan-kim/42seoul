@@ -9,6 +9,18 @@ void    get_pid(char **av)
     ft_printf("PID [%d]\n", pid);
 }
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
 int	minitalk_atoi(const char *str)
 {
 	int			i;

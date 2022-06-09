@@ -13,7 +13,8 @@ SRC= server_bonus.c \
 	 server_utils_bonus.c \
 	 ../utils_bonus.c \
 	 ../error_bonus.c \
-	 ../check_bonus.c
+	 ../check_bonus.c \
+	 ../ack_bonus.c
 	
 OBJ=$(SRC:.c=.o)
 

@@ -1,21 +1,31 @@
 #include "../minitalk_bonus.h"
 
-// generate_signal.sa_sigaction = handler;
-// generate_signal.sa_flags = SA_SIGINFO;
-//예외 조건 필요 ac 개수, 해당 pid 없을 때.
-// if (ac < 3)
-// {
-//     printf("Usage : %s PID \n", av[0]);
-// }
-// else
-//     printf("No Usage PID \n");
+void    send_signal(char **av)
+{
+    int     index;
+    pid_t   pid;
 
-// void	handler(int signo, siginfo_t *info, void *context)
-// {
-//     (void) signo;
-//     (void) info;
-//     (void) context;
-// }
+    index = 0;
+    pid = (pid_t)minitalk_atoi(av[1]);
+    check_string(av, index);
+    while (0 != av[2][index])
+    {
+        decimal_to_binary(pid, av[2][index]);
+        index++;   
+    }
+}
+
+void    catch_signal_from_server(void)
+{
+    struct sigaction    message_client;
+
+    message_client.sa_sigaction = count_ack;
+    message_client.sa_flags = SA_SIGINFO;
+    sigemptyset(&message_client.sa_mask);
+    if (0 != sigaction(SIGUSR1, &message_client, NULL))
+        error_sigaction();
+}
+
 void    send_signal_to_server(pid_t pid, int bit)
 {
     if ((bit & 1) == 0)
@@ -44,10 +54,3 @@ void    decimal_to_binary(pid_t pid, char character)
         usleep(1000);   
     }
 }
-
-// 잘받았다는 신호 받고 넘어가면 좋을 듯.
-// 첫번째 시그널만 보내고 pause를 하고 있다가, 서버에서 반응오면
-// generate_signal이 동작하도록 해야할듯?
-// pause();
-// if (sigaction(SIGUSR1, &generate_signal, NULL) != 0)
-//     exit(1);
