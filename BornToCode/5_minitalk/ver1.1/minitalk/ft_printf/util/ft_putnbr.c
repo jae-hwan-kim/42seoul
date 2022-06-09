@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ack_bonus.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:38:34 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 21:42:34 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:32:52 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/02 17:02:30 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "minitalk_bonus.h"
-
-size_t	g_ack_count = 0;
-
-void	check_ack(size_t size)
+int	ft_putnbr(long long num)
 {
-	if (g_ack_count == size)
+	int	len;
+
+	len = 0;
+	if (num == -2147483648)
 	{
-		ft_printf("총 문자 수 : %d\n", ack_count);
-		ft_printf("메시지 송신에 성공했습니다.\n");
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	else if (num < 0)
+	{
+		num = -num;
+		len += ft_putchar_fd('-', 1);
+		len += ft_putnbr(num);
+	}
+	else if (num >= 10)
+	{
+		len += ft_putnbr(num / 10);
+		len += ft_putnbr(num % 10);
 	}
 	else
-	{
-		ft_printf("메시지를 송신에 실패했습니다.\n");
-		exit(1);
-	}
-}
-
-void	count_ack(int signal, siginfo_t *info, void *context)
-{
-	(void) info;
-	(void) context;
-	(void) signal;
-	g_ack_count++;
+		len += ft_putchar_fd(num + '0', 1);
+	return (len);
 }

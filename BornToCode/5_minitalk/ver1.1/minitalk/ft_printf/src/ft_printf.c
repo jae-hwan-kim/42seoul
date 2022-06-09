@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:39:17 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 22:09:52 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:27:27 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/01 09:27:32 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk_bonus.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_printf(const char *argu, ...)
 {
-	check_client_ac(ac);
-	get_pid(av);
-	catch_signal_from_server();
-	send_signal(av);
-	check_ack(ft_strlen(av[2]));
-	return (0);
+	int		r_printf;
+	va_list	ap;
+
+	r_printf = 0;
+	if (!argu)
+		return (0);
+	va_start (ap, argu);
+	r_printf += ft_check(r_printf, argu, ap);
+	va_end (ap);
+	return (r_printf);
 }

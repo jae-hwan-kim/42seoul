@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_bonus.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:38:55 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 21:50:51 by jaekim           ###   ########.fr       */
+/*   Created: 2022/06/09 21:00:48 by jaekim            #+#    #+#             */
+/*   Updated: 2022/06/09 21:07:21 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "minitalk.h"
 
 void	get_pid(char **av)
 {
@@ -19,18 +19,6 @@ void	get_pid(char **av)
 	pid = getpid();
 	ft_printf("Program : %s\n", av[0]);
 	ft_printf("PID [%d]\n", pid);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
 }
 
 int	minitalk_atoi(const char *str)

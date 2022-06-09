@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ack_bonus.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:38:34 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 21:42:34 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:31:59 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/03 17:53:24 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "minitalk_bonus.h"
-
-size_t	g_ack_count = 0;
-
-void	check_ack(size_t size)
+int	ft_puthex(size_t num, char *hex)
 {
-	if (g_ack_count == size)
+	unsigned int	len;
+
+	len = 0;
+	if (num >= 16)
 	{
-		ft_printf("총 문자 수 : %d\n", ack_count);
-		ft_printf("메시지 송신에 성공했습니다.\n");
+		len += ft_puthex(num / 16, hex);
+		len += ft_puthex(num % 16, hex);
 	}
 	else
-	{
-		ft_printf("메시지를 송신에 실패했습니다.\n");
-		exit(1);
-	}
-}
-
-void	count_ack(int signal, siginfo_t *info, void *context)
-{
-	(void) info;
-	(void) context;
-	(void) signal;
-	g_ack_count++;
+		len += ft_putchar_fd(hex[num], 1);
+	return (len);
 }

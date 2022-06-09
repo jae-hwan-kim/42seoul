@@ -5,25 +5,46 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/09 21:36:45 by jaekim            #+#    #+#              #
-#    Updated: 2022/06/09 21:36:46 by jaekim           ###   ########.fr        #
+#    Created: 2022/06/09 21:01:01 by jaekim            #+#    #+#              #
+#    Updated: 2022/06/09 21:01:02 by jaekim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SERVER_DIR = ./server/
-CLIENT_DIR = ./client/
+NAME=client
 
-all : 
-	make -C $(SERVER_DIR) all
-	make -C $(CLIENT_DIR) all
+CC=cc
+CFLAGS= -Wall -Wextra -Werror -g3
+LIB_NAME=ftprintf
+LIB_DIR= ../ft_printf/
+LIB=$(LIB_DIR)lib$(LIB_NAME).a
+LIBFT=libftprintf.a
+
+CP=cp
+RM=rm -f
+SRC= client.c \
+	 client_utils.c \
+	 ../utils.c \
+	 ../error.c \
+	 ../check.c
+	
+OBJ=$(SRC:.c=.o)
+
+$(NAME) : $(LIB) $(OBJ)
+	$(CC) $(CFLAGS) -L$(LIB_DIR) -l$(LIB_NAME) $(OBJ) -o $(NAME)
+
+$(LIB) :
+	make -C $(LIB_DIR) all
+
+all : $(NAME)
 
 clean :
-	make -C $(SERVER_DIR) clean
-	make -C $(CLIENT_DIR) clean
+	make -C $(LIB_DIR) clean
+	$(RM) $(OBJ)
 
 fclean : clean
-	make -C $(SERVER_DIR) fclean
-	make -C $(CLIENT_DIR) fclean
+	make -C $(LIB_DIR) fclean
+	$(RM) $(LIBFT)
+	$(RM) $(NAME)
 
 re : fclean all
 

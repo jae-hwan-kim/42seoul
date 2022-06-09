@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ack_bonus.c                                        :+:      :+:    :+:   */
+/*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:38:34 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 21:42:34 by jaekim           ###   ########.fr       */
+/*   Created: 2022/06/09 21:01:08 by jaekim            #+#    #+#             */
+/*   Updated: 2022/06/09 21:33:33 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "../minitalk.h"
 
-size_t	g_ack_count = 0;
-
-void	check_ack(size_t size)
+void	send_signal(char **av)
 {
-	if (g_ack_count == size)
+	int		index;
+	pid_t	pid;
+
+	index = 0;
+	pid = (pid_t)minitalk_atoi(av[1]);
+	check_string(av, index);
+	while (0 != av[2][index])
 	{
-		ft_printf("총 문자 수 : %d\n", ack_count);
-		ft_printf("메시지 송신에 성공했습니다.\n");
-	}
-	else
-	{
-		ft_printf("메시지를 송신에 실패했습니다.\n");
-		exit(1);
+		decimal_to_binary(pid, av[2][index]);
+		index++;
 	}
 }
 
-void	count_ack(int signal, siginfo_t *info, void *context)
+int	main(int ac, char **av)
 {
-	(void) info;
-	(void) context;
-	(void) signal;
-	g_ack_count++;
+	check_client_ac(ac);
+	get_pid(av);
+	send_signal(av);
+	return (0);
 }

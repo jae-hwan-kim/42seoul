@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:39:17 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 22:09:52 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:27:41 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/05 17:15:34 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk_bonus.h"
+#include "ft_printf.h"
 
-int	main(int ac, char **av)
+int	ft_check(int r_printf, const char *argu, va_list ap)
 {
-	check_client_ac(ac);
-	get_pid(av);
-	catch_signal_from_server();
-	send_signal(av);
-	check_ack(ft_strlen(av[2]));
-	return (0);
+	int	index;
+
+	index = 0;
+	while (argu[index] != '\0')
+	{
+		if (argu[index] != '%')
+			r_printf += ft_putchar_fd(argu[index], 1);
+		else if (argu[index] == '%')
+		{
+			index++;
+			r_printf += ft_form_check(&index, argu, ap);
+		}
+		index++;
+	}
+	return (r_printf);
 }

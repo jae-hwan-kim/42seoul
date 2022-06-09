@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*   ft_put_u.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/09 21:39:17 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 22:09:52 by jaekim           ###   ########.fr       */
+/*   Created: 2022/02/01 09:31:28 by jaekim            #+#    #+#             */
+/*   Updated: 2022/02/01 09:31:32 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "../src/ft_printf.h"
 
-#include "../minitalk_bonus.h"
-
-int	main(int ac, char **av)
+int	ft_put_u(unsigned int num)
 {
-	check_client_ac(ac);
-	get_pid(av);
-	catch_signal_from_server();
-	send_signal(av);
-	check_ack(ft_strlen(av[2]));
-	return (0);
+	unsigned int	print_d;
+
+	print_d = 0;
+	if (num > 0 || num <= 4294967295)
+		print_d = ft_putnbr(num);
+	return (print_d);
 }
