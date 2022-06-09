@@ -16,33 +16,21 @@
 //     (void) info;
 //     (void) context;
 // }
-void    send_signal_to_server(char **av, int bit)
+void    send_signal_to_server(pid_t pid, int bit)
 {
     if ((bit & 1) == 0)
     {
-        if (0 != kill(minitalk_atoi(av[1]), SIGUSR1))
-        {
-            ft_printf("\n메시지 전송에 실패했습니다.\n");
-            ft_printf("\n[해결 방법]\n");
-            ft_printf("1. 서버가 실행됐는지 확인하세요.\n");
-            ft_printf("2. 올바른 PID 인지 확인하세요.\n");
-            exit(1);
-        }
+        if (0 != kill(pid, SIGUSR1))
+            error_kill();
     }
     else if ((bit & 1) == 1)
     {
-        if (0 != kill(minitalk_atoi(av[1]), SIGUSR2))
-        {
-            ft_printf("\n메시지 전송에 실패했습니다.\n");
-            ft_printf("\n[해결 방법]\n");
-            ft_printf("1. 서버가 실행됐는지 확인하세요.\n");
-            ft_printf("2. 올바른 PID 인지 확인하세요.\n");
-            exit(1);
-        }
+        if (0 != kill(pid, SIGUSR2))
+            error_kill();
     }
 }
 
-void    decimal_to_binary(char **av, char character)
+void    decimal_to_binary(pid_t pid, char character)
 {
     int     shift;
     int     bit;
@@ -51,7 +39,7 @@ void    decimal_to_binary(char **av, char character)
     while (0 <= shift)
     {
         bit = character >> shift;
-        send_signal_to_server(av, bit);
+        send_signal_to_server(pid, bit);
         shift--;
         usleep(1000);   
     }
