@@ -11,7 +11,9 @@ CP=cp
 RM=rm -f
 SRC= server.c \
 	 server_utils.c \
-	../utils.c
+	 ../utils.c \
+	 ../error.c \
+	 ../check.c
 	
 OBJ=$(SRC:.c=.o)
 

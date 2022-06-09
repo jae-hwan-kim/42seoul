@@ -19,11 +19,7 @@ int	minitalk_atoi(const char *str)
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
-		{
-			ft_printf("\n메시지 전송에 실패했습니다.\n");
-			ft_printf("올바른 PID 를 입력하세요.\n");
-			exit(1);
-		}
+			error_pid();
 		while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 		{
 			result = result * 10 + (str[i] - '0');

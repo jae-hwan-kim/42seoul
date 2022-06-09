@@ -19,22 +19,21 @@
 void    send_signal(char **av)
 {
     int     index;
+    pid_t   pid;
 
     index = 0;
+    pid = (pid_t)minitalk_atoi(av[1]);
+    check_string(av, index);
     while (0 != av[2][index])
     {
-        decimal_to_binary(av, av[2][index]);
+        decimal_to_binary(pid, av[2][index]);
         index++;   
     }
 }
 
 int main(int ac, char **av)
 {
-    if (3 != ac)
-    {
-        ft_printf("실행 방법\n[ ./client PID \"메시지\" ]으로 입력하세요.\n");
-        exit(1);
-    }
+    check_client_ac(ac);
     get_pid(av);
     send_signal(av);
     return (0);
