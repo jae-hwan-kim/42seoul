@@ -37,6 +37,6 @@ void	decimal_to_binary(pid_t pid, char character)
 		bit = character >> shift;
 		send_signal_to_server(pid, bit);
 		shift--;
-		usleep(1000);
+		usleep(50);
 	}
 }

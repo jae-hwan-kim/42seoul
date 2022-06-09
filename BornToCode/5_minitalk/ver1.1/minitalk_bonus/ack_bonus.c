@@ -18,7 +18,7 @@ void	check_ack(size_t size)
 {
 	if (g_ack_count == size)
 	{
-		ft_printf("총 문자 수 : %d\n", ack_count);
+		ft_printf("총 문자 수 : %d\n", g_ack_count);
 		ft_printf("메시지 송신에 성공했습니다.\n");
 	}
 	else
