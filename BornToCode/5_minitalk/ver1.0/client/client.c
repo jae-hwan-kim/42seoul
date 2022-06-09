@@ -30,8 +30,11 @@ void    send_signal(char **av)
 
 int main(int ac, char **av)
 {
-    (void) ac;
-    
+    if (3 != ac)
+    {
+        ft_printf("실행 방법\n[ ./client PID \"메시지\" ]으로 입력하세요.\n");
+        exit(1);
+    }
     get_pid(av);
     send_signal(av);
     return (0);
