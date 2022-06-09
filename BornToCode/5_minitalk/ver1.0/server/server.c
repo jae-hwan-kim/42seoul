@@ -28,16 +28,26 @@ void    catch_signal(void)
 
     message.sa_sigaction = get_message;
     message.sa_flags = SA_SIGINFO;
-    if (sigaction(SIGUSR1, &message, NULL) != 0)
+    sigemptyset(&message.sa_mask);
+    if (0 != sigaction(SIGUSR1, &message, NULL))
+    {
+        ft_printf("\n메시지 수신에 실패했습니다.\n");
         exit(1);
-    if (sigaction(SIGUSR2, &message, NULL) != 0)
+    }
+    if (0 != sigaction(SIGUSR2, &message, NULL) != 0)
+    {
+        ft_printf("\n메시지 수신에 실패했습니다.\n");
         exit(1);
+    }
 }
 
 int main(int ac, char **av)
 {
-    (void) ac;
-    
+    if (1 != ac)
+    {
+        ft_printf("실행 방법\n[ ./server ] 로 실행하세요.\n");
+        exit(1);
+    }
     get_pid(av);
     catch_signal();
     while (1);
