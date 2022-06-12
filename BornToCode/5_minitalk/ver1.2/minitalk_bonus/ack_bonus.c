@@ -6,7 +6,7 @@
 /*   By: jaekim <jaekim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 21:38:34 by jaekim            #+#    #+#             */
-/*   Updated: 2022/06/09 21:42:34 by jaekim           ###   ########.fr       */
+/*   Updated: 2022/06/13 07:45:25 by jaekim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_ack(t_ack *ack)
 
 void	check_ack(size_t size, t_ack *g_ack)
 {
-	size_t count_byte;
+	size_t	count_byte;
 
 	count_byte = (g_ack->count_zero_bit + g_ack->count_one_bit) / 8;
 	if (count_byte == size)

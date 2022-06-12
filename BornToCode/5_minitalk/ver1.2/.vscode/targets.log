@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Jun 13 08:03:18 2022
+# Make data base, printed on Mon Jun 13 08:04:11 2022
 
 # Variables
 
@@ -26,23 +26,26 @@ PLATFORMIO_IDE = 2.4.3
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/5_minitalk/ver1.2/minitalk_bonus
+CURDIR := /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/5_minitalk/ver1.2
 # makefile
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"738ac08552cca045871a73764b8c446f.ko","_translationsConfigFile":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/tcf.json","_cacheRoot":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko","_resolvedLanguagePackCoreLocation":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/da15b6fd3ef856477bf6f4fb29ba1b7af717770d","_corruptedFile":"/Users/kimjaehwan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
+# makefile
+MAKEFILE_LIST := 
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
+ 
+make: *** No rule to make target `all'.  Stop.
+
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-ae81aa66-3df3-4e7a-80b6-116d32c07ee6.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/2v/0_967gpj1pddw3qs5vls82pc0000gn/T/vscode-ipc-dd9ccd5e-9cb5-49ca-be08-19c3d26f3a5b.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -53,8 +56,6 @@ LaunchInstanceID = 55474292-0D78-40A4-B7CE-6F1B051F47BB
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
-# makefile (from `Makefile', line 14)
-CLIENT_DIR = ./client/
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
@@ -64,7 +65,7 @@ SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.BRehFR37fB/Listeners
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/5_minitalk/ver1.2/minitalk_bonus
+PWD = /Users/kimjaehwan/developer_jaekim/42seoul/BornToCode/5_minitalk/ver1.2
 # environment
 HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
@@ -106,7 +107,7 @@ MAKE_VERSION := 3.81
 # environment
 USER = jaekim
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := 
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -139,8 +140,6 @@ HOMEBREW_PREFIX = /opt/homebrew
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
 __CF_USER_TEXT_ENCODING = 0x1F5:0x3:0x33
-# makefile (from `Makefile', line 13)
-SERVER_DIR = ./server/
 # environment
 COMMAND_MODE = unix2003
 # default
@@ -166,7 +165,7 @@ LANG = C
 # environment
 VSCODE_PID = 372
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=3/105=3%
+# Load=75/1024=7%, Rehash=0, Collisions=3/96=3%
 
 # Pattern-specific Variable Values
 
@@ -174,9 +173,9 @@ VSCODE_PID = 372
 
 # Directories
 
-# . (device 16777230, inode 11069405): 16 files, no impossibilities.
+# . (device 16777230, inode 11069351): 5 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 5 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -184,41 +183,14 @@ VSCODE_PID = 372
 
 # Files
 
+# Not a target:
 all:
-#  Phony target (prerequisite of .PHONY).
 #  Command-line target.
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/12=8%
-#  commands to execute (from `Makefile', line 17):
-	make -C $(SERVER_DIR) all
-	make -C $(CLIENT_DIR) all
-	
-
-.PHONY: all clean fclean re
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -228,22 +200,23 @@ all:
 
 # Not a target:
 Makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-06-10 16:54:55
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Failed to be updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-fclean: clean
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
+# Not a target:
+makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 25):
-	make -C $(SERVER_DIR) fclean
-	make -C $(CLIENT_DIR) fclean
-	
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -251,35 +224,29 @@ fclean: clean
 #  Modification time never checked.
 #  File has not been updated.
 
-re: fclean all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
+# Not a target:
+GNUmakefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 21):
-	make -C $(SERVER_DIR) clean
-	make -C $(CLIENT_DIR) clean
-	
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=8/1024=1%, Rehash=0, Collisions=0/29=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 1
-# # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+# # of strings in strcache: 0
+# # of strcache buffers: 0
+# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Jun 13 08:03:18 2022
+# Finished Make data base on Mon Jun 13 08:04:11 2022
 
  
