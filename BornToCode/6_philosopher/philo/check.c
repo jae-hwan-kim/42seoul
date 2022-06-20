@@ -34,9 +34,7 @@ int check_av(int ac, char **av)
             }
             if (('0' > av[index][check] || '9' < av[index][check]))
             {
-                if ('+' == av[index][check])
-                    ;
-                else
+                if ('+' != av[index][check])
                 {
                     write(STDERR_FILENO, "Error : Use Number\n", 19);
                     return (0);

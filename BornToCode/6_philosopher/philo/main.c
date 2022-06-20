@@ -1,32 +1,23 @@
 #include "philo.h"
 
-int	ft_atoi(const char *str)
+int	philo_atoi(const char *str)
 {
 	int			i;
-	int			sign;
 	long long	result;
 
 	i = 0;
-	sign = 1;
 	result = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32 || str[i] == '+')
 		i++;
-	while (str[i] == '-')
-	{
-		sign *= -1;
-		i++;
-	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
 	{
-		if (result * sign > 2147483647)
+		if (result > 2147483647)
 			return (-1);
-		else if (result * sign < -2147483648)
-			return (0);
 		else
 			result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	return (result);
 }
 
 int check_param(int ac, char **av)
@@ -39,12 +30,12 @@ int check_param(int ac, char **av)
 
 void    init_param(t_philo *philo, int ac, char **av)
 {
-    philo->philosopher = ft_atoi(av[1]);
-    philo->time_to_die = ft_atoi(av[2]);
-    philo->time_to_eat = ft_atoi(av[3]);
-    philo->time_to_sleep = ft_atoi(av[4]);
+    philo->philosopher = philo_atoi(av[1]);
+    philo->time_to_die = philo_atoi(av[2]);
+    philo->time_to_eat = philo_atoi(av[3]);
+    philo->time_to_sleep = philo_atoi(av[4]);
     if (0 != av[5])
-        philo->must_eat = ft_atoi(av[5]);
+        philo->must_eat = philo_atoi(av[5]);
     else
         philo->must_eat = 0;
 }
