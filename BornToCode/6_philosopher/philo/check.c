@@ -11,7 +11,7 @@ int check_ac(int ac)
     return (0);
 }
 
-int check_av(int ac, char **av)
+int check_av(char **av)
 {
     int index;
     int check;
@@ -45,4 +45,12 @@ int check_av(int ac, char **av)
         index++;
     }
     return (1);
+}
+
+int check_param(int ac, char **av)
+{
+    if (check_ac(ac))
+        if (check_av(av))
+            return (1);
+    return (0);
 }
