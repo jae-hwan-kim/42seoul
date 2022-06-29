@@ -75,62 +75,62 @@ void test(int i, char *state, char **av)
 //     }
 // }
 
-// void    think(int id)
-// {
-//     printf("%d: Now, I'm thinking...\n", id);
-//     usleep((1 + rand() % 50) * 10000); //자는 시간
-// }
+void    think(int id)
+{
+    printf("%d: Now, I'm thinking...\n", id);
+    usleep((1 + rand() % 50) * 10000); //자는 시간
+}
 
-// void    eat(int id)
-// {
-//     printf("%d: Now, I'm eating...\n", id);
-//     usleep((1 + rand() % 50) * 10000); //먹는 시간
-// }
+void    eat(int id)
+{
+    printf("%d: Now, I'm eating...\n", id);
+    usleep((1 + rand() % 50) * 10000); //먹는 시간
+}
 
-// void    *philosopher(void *param)
-// {
-//     int id = *((int *)param);
-//     while (TRUE) {
-//         think(id);
-//         pickup(id);
-//         eat(id);
-//         putdown(id);
-//     }
-// }
+void    *philosopher(void *param)
+{
+    int id = *((int *)param);
+    while (TRUE) {
+        think(id);
+        pickup(id);
+        eat(id);
+        putdown(id);
+    }
+}
 
-// int leftOf(int i, char **av)
-// {
-//     return ((i + atoi(av[1] - 1) % atoi(av[1])));
-// }
+int leftOf(int i, char **av)
+{
+    return ((i + atoi(av[1] - 1) % atoi(av[1])));
+}
 
-// int rightOf(int i, char **av)
-// {
-//     return ((i + 1) % atoi(av[1]));
-// }
+int rightOf(int i, char **av)
+{
+    return ((i + 1) % atoi(av[1]));
+}
 
-// void    init(char **av, char *state, char **mutex_lock)
-// {
-//     int i;
-//     for (i = 0; i < atoi(av[1]); i++)
-//     {
-//         state[i] = THINKING;
-//     }
-//     pthread_mutex_init(mutex_lock, NULL);
-//     // srand(time(0)); 랜덤함수에 대한...!
-// }
+void    init(char **av, char *state, char **mutex_lock)
+{
+    int i;
+    for (i = 0; i < atoi(av[1]); i++)
+    {
+        state[i] = THINKING;
+    }
+    pthread_mutex_init(mutex_lock, NULL);
+    // srand(time(0)); 랜덤함수에 대한...!
+}
 
-// int main(int ac, char **av)
-// {
-//     int i;
-//     pthread_t tid;
-//     pthread_mutex_t *mutex_lock;   
-//     condition *state;
+int main(int ac, char **av)
+{
+    int i;
+    pthread_t tid;
+    pthread_mutex_t *mutex_lock;   
+    condition *state;
 
-//     //필로소퍼 숫자만큼 malloc 하고 state 초기화
-//     init(av, state, &mutex_lock);
-//     for (i = 0; i < atoi(av[1]); i++)
-//         pthread_create(&tid, NULL, philosopher, (void *)&i);
-//     for (i = 0; i < atoi(av[1]); i++)
-//         pthread_join(tid, NULL);
-//     return (0);
-// }
+    //필로소퍼 숫자만큼 malloc 하고 state 초기화
+    init(av, state, &mutex_lock);
+    for (i = 0; i < atoi(av[1]); i++)
+        pthread_create(&tid, NULL, philosopher, (void *)&i);
+    for (i = 0; i < atoi(av[1]); i++)
+        pthread_join(tid, NULL);
+    return (0);
+}
