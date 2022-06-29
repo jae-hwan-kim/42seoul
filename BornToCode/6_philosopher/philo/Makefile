@@ -7,8 +7,8 @@ RM=rm -f
 SRC= main.c \
 	 init.c \
 	 check.c \
-	 print.c \
-	 utils.c
+	utils.c \
+	#   print.c \
 	
 OBJ=$(SRC:.c=.o)
 

@@ -2,13 +2,16 @@
 
 int main(int ac, char **av)
 {
-    t_philo *philo;
+    t_all *program;
 
-    philo = (t_philo *)malloc(sizeof(t_philo));
+    program = (t_all *)malloc(sizeof(t_all));
+    if (0 == program)
+        return (0);
     if (check_param(ac, av))
     {
-        init_param(philo, av);
-        print_philo(philo);  
+        printf("before init function\n");
+        init(program, av);
+        // print_philo(program);  
     }
     return (0);
 }
