@@ -4,56 +4,85 @@ void    init_all(t_all *program, char **av)
 {
     program->number_of_fork = philo_atoi(av[1]);
     program->number_of_philo = philo_atoi(av[1]);
-    program->philo = (t_philo *)malloc(sizeof(t_philo));
-    if (0 == program->philo)
-        exit(1);
+    program->philos = (t_philos *)malloc(sizeof(t_philos));
+    if (0 == program->philos)
+        error(MALLOC, "d");
     program->mutex = (t_mutex *)malloc(sizeof(t_mutex));
     if (0 == program->mutex)
-        exit(1);
+        error(MALLOC, "mutex\n");
     program->meal = (t_meal *)malloc(sizeof(t_meal));
     if (0 == program->meal)
-        exit(1);
+        error(MALLOC, "meal\n");
 }
 
 void    init_mutex(t_mutex *mutex)
 {
-    printf("in init_mutex function\n");
     mutex->mutex_lock = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t));
-    pthread_mutex_init(mutex->mutex_lock, NULL);
     if (0 == mutex->mutex_lock)
-    {
-        printf("mutex_lock malloc 실패");
-        exit(1);
-    }
+        error(MALLOC, "mutex\n");
     if (0 != pthread_mutex_init(mutex->mutex_lock, NULL))
-    {
-        printf("mutex 생성 실패\n");
-        exit(1);
-    }
-    printf("mutex 생성 성공\n");
-    printf("mutex wnth %p\n", mutex->mutex_lock);
+        error(MUTEX, "mutex\n");
 }
 
-void    init_meal(t_meal *meal, char **av)
+void    init_meal(t_meal *meal, char **av, int ac)
 {
     meal->tt_die = philo_atoi(av[2]);
     meal->tt_eat = philo_atoi(av[3]);
     meal->tt_sleep = philo_atoi(av[4]);
-    meal->max_times_of_eat = philo_atoi(av[5]);
+    if (ac == 6)    
+        meal->max_times_of_eat = philo_atoi(av[5]);
+    else
+        meal->max_times_of_eat = 0;
 }
 
-// void    init_philo(t_philo *philo, char **av)
-// {
+void    *have_a_meal(void *temp)
+{
+    t_all *program;
 
-// }
+    program = (t_all *)temp;
+    program->philos->times_of_eat[program->philos->index] = 0;
+    program->philos->philo[program->philos->index] = THINKING;
+    print_philo(temp);
+    (program->philos->index)++;
+    // pthread_mutex_lock(temp->mutex->mutex_lock);
+    // pthread_mutex_unlock(temp->mutex->mutex_lock);
+    return (0);
+}
 
-void    init(t_all *program, char **av)
+void    init_philo(t_all *program)
+{
+    int         number;
+    int         i;
+    t_philos    *philos;
+
+    number = program->number_of_philo;
+    philos = program->philos;
+    philos->tid = (pthread_t *)malloc(sizeof(pthread_t) * number);
+    if (0 == philos->tid)
+        error(MALLOC, "tid\n");
+    philos->philo = (long *)malloc(sizeof(long) * number);
+    if (0 == philos->philo)
+        error(MALLOC, "philo\n");
+    philos->times_of_eat = (int *)malloc(sizeof(int) * number);
+    if (0 == philos->times_of_eat)
+        error(MALLOC, "times_of_eat\n");
+    philos->index = 0;
+    i = philos->index;
+    while (i < number)
+    {
+        if (pthread_create(&(philos->tid[philos->index]), NULL, have_a_meal, (void *)program))
+            error(THREAD, "thread");
+        //스레드 생성됐는지 확인하는 코드, 생성 안됐으면 기다렸다가 생성하기
+        if (i + 1 != philos->index)
+            usleep(100);
+        i++;
+    }
+}
+
+void    init(t_all *program, char **av, int ac)
 {
     init_all(program, av);
-    printf("before init mutex\n");
     init_mutex(program->mutex);
-    printf("before init meal\n");
-    init_meal(program->meal, av);
-    printf("mutex wnth %p\n", program->mutex->mutex_lock);
-    // init_philo(program, av);
+    init_meal(program->meal, av, ac);
+    init_philo(program);
 }

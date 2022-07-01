@@ -19,3 +19,14 @@ int	philo_atoi(const char *str)
 	}
 	return (result);
 }
+
+void	error(int type, char *message)
+{
+	if (type == 1)
+		printf("Error : %s 할당 실패\n", message);
+	else if (type == 2)
+		printf("Error : %s 생성 실패", message);
+	else if (type == 3)
+		printf("Error : %s 생성 실패", message);
+	exit(1);
+}
