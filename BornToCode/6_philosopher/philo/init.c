@@ -6,7 +6,7 @@ void    init_all(t_all *program, char **av)
     program->number_of_philo = philo_atoi(av[1]);
     program->philos = (t_philos *)malloc(sizeof(t_philos));
     if (0 == program->philos)
-        error(MALLOC, "d");
+        error(MALLOC, "philos");
     program->mutex = (t_mutex *)malloc(sizeof(t_mutex));
     if (0 == program->mutex)
         error(MALLOC, "mutex\n");
@@ -40,19 +40,16 @@ void    *have_a_meal(void *temp)
     t_all *program;
 
     program = (t_all *)temp;
-    program->philos->times_of_eat[program->philos->index] = 0;
-    program->philos->philo[program->philos->index] = THINKING;
-    print_philo(temp);
+    printf(">>>>>>>>>>>>>>>%d\n", program->philos->index);
     (program->philos->index)++;
-    // pthread_mutex_lock(temp->mutex->mutex_lock);
-    // pthread_mutex_unlock(temp->mutex->mutex_lock);
     return (0);
 }
 
-void    init_philo_and_have_meal(t_all *program)
+void    init_philo(t_all *program)
 {
     int         number;
     int         i;
+    int         flag;
     t_philos    *philos;
 
     number = program->number_of_philo;
@@ -68,13 +65,23 @@ void    init_philo_and_have_meal(t_all *program)
         error(MALLOC, "times_of_eat\n");
     philos->index = 0;
     i = philos->index;
+    // 철학자 변수 초가화
     while (i < number)
     {
-        if (pthread_create(&(philos->tid[philos->index]), NULL, have_a_meal, (void *)program))
+        program->philos->times_of_eat[i] = 0;
+        program->philos->philo[i] = THINKING;
+        i++;
+    }
+    philos->index = 0;
+    i = philos->index;
+    // 철학자 스레드 생성
+    flag = 1;
+    while (i < number)
+    {
+        if (pthread_create(&(philos->tid[i]), NULL, have_a_meal, (void *)program))
             error(THREAD, "thread");
-        //스레드 생성됐는지 확인하는 코드, 생성 안됐으면 기다렸다가 생성하기
         if (i + 1 != philos->index)
-            usleep(100);
+            usleep(1);
         i++;
     }
 }
@@ -84,5 +91,5 @@ void    init_and_have_meal(t_all *program, char **av, int ac)
     init_all(program, av);
     init_mutex(program->mutex);
     init_meal(program->meal, av, ac);
-    init_philo_and_have_meal(program);
+    init_philo(program);
 }

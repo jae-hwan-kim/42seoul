@@ -30,7 +30,7 @@ void    print_all_param(t_all *program, char **av)
         printf("-----------------스레드\n");
         i++;
     }
-    printf("               tid : %d\n", program->philos->index);
+    // printf("               tid : %d\n", program->philos->index);
     printf("-----------------------\n");
     printf("             mutex : %ld\n", (long)(program->mutex->mutex_lock));
 }
