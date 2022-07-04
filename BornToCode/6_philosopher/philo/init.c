@@ -49,7 +49,7 @@ void    *have_a_meal(void *temp)
     return (0);
 }
 
-void    init_philo(t_all *program)
+void    init_philo_and_have_meal(t_all *program)
 {
     int         number;
     int         i;
@@ -79,10 +79,10 @@ void    init_philo(t_all *program)
     }
 }
 
-void    init(t_all *program, char **av, int ac)
+void    init_and_have_meal(t_all *program, char **av, int ac)
 {
     init_all(program, av);
     init_mutex(program->mutex);
     init_meal(program->meal, av, ac);
-    init_philo(program);
+    init_philo_and_have_meal(program);
 }

@@ -10,13 +10,14 @@ int main(int ac, char **av)
         return (0);
     if (check_param(ac, av))
     {
-        init(program, av, ac);
+        init_and_have_meal(program, av, ac);
         while (i < program->number_of_philo)
         {
             pthread_join(program->philos->tid[i], NULL);
             i++;
         }
+        print_all_param(program, av);
     }
-    print_all_param(program, av);
+    system("leaks philo");
     return (0);
 }
