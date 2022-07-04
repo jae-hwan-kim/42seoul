@@ -18,6 +18,6 @@ int main(int ac, char **av)
         }
         print_all_param(program, av);
     }
-    system("leaks philo");
+    // system("leaks philo");
     return (0);
 }
