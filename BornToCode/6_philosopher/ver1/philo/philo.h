@@ -43,6 +43,8 @@ typedef struct  s_meal
 
 typedef struct  s_all
 {
+    struct timeval *start;
+    float       time;
     int         number_of_fork;
     int         number_of_philo;
     t_philos    *philos;
@@ -56,10 +58,12 @@ int     check_av(char **av);
 
 void    print_all_param(t_all *program, char **av);
 void    print_philo(t_all *temp);
-void    init_and_have_meal(t_all *program, char **av, int ac);
+void    init(t_all *program, char **av, int ac);
 void    init_all(t_all *program, char **av);
 void    init_meal(t_meal *meal, char **av, int ac);
 void    init_mutex(t_mutex *mutex);
+
+void    meal(t_all *program);
 
 int     philo_atoi(const char *str);
 void	error(int type,char *message);
