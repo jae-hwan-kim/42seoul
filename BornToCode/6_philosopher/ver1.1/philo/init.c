@@ -35,10 +35,21 @@ void    init_meal(t_meal *meal, char **av, int ac)
         meal->max_times_of_eat = 0;
 }
 
+void    *have_a_meal(void *temp)
+{
+    t_all *program;
+
+    program = (t_all *)temp;
+    printf(">>>>>>>>>>>>>>>%d\n", program->philos->index);
+    (program->philos->index)++;
+    return (0);
+}
+
 void    init_philo(t_all *program)
 {
     int         number;
     int         i;
+    int         flag;
     t_philos    *philos;
 
     number = program->number_of_philo;
@@ -61,9 +72,21 @@ void    init_philo(t_all *program)
         program->philos->philo[i] = THINKING;
         i++;
     }
+    philos->index = 0;
+    i = philos->index;
+    // 철학자 스레드 생성
+    flag = 1;
+    while (i < number)
+    {
+        if (pthread_create(&(philos->tid[i]), NULL, have_a_meal, (void *)program))
+            error(THREAD, "thread");
+        if (i + 1 != philos->index)
+            usleep(1);
+        i++;
+    }
 }
 
-void    init(t_all *program, char **av, int ac)
+void    init_and_have_meal(t_all *program, char **av, int ac)
 {
     init_all(program, av);
     init_mutex(program->mutex);
