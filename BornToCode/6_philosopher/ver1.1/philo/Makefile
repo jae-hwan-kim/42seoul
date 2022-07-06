@@ -9,6 +9,7 @@ SRC= main.c \
 	 check.c \
 	 utils.c \
 	 print.c \
+	 meal.c \
 	
 OBJ=$(SRC:.c=.o)
 
