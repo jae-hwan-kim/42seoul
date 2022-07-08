@@ -20,18 +20,8 @@ int main(void)
     struct timeval start;
     struct timeval end;
 
-    // int num = 10000;
     int num2 = 10000;
-
-    // gettimeofday(&start, NULL);
-    // loopFunc(num);
-    // gettimeofday(&end, NULL);
-
-    // printf("loopFunc(%d)\ntime spent: %f usec\n", num, time_diff(&start, &end));
-
-
     gettimeofday(&start, NULL);
-    // loopFunc(num2);
     sleep(5);
     gettimeofday(&end, NULL);
 
